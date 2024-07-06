@@ -1,0 +1,42 @@
+a {
+  text-decoration: none;
+  color: #ffffff;
+}
+.librarySection {
+  display: flex;
+  flex-direction: column;
+  font-size: larger;
+  text-transform: capitalize;
+  font-weight: 700;
+  font-family: 'Josefin Sans', sans-serif;
+  background-color: var(--primary-section-bg);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  margin-top: 0.5rem;
+  background-color: turquoise;
+}
+.libraryLabel {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+.librarySpanDiv {
+  margin-left: 1rem;
+}
+.libraryVerticalScroll {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: flex-start;
+  padding: 1rem;
+  flex-wrap: nowrap;
+  max-height: 22rem;
+  background-color: tomato;
+  overflow: scroll;
+}
+.verticalCard {
+  width: 3rem;
+  height: 3rem;
+  background-color: violet;
+  margin: 0.5rem;
+}

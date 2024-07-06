@@ -1,0 +1,15 @@
+.leftSection {
+  width: 30%;
+  border-radius: 0.5rem;
+}
+@media only screen and (max-width: 768px) {
+  .leftSection {
+    width: 15%;
+    border-radius: 0;
+  }
+}
+@media only screen and (max-width: 425px) {
+  .leftSection {
+    display: none;
+  }
+}

@@ -1,0 +1,25 @@
+:root {
+  --primary-background: #ffffff;
+  --primary-section-bg: #cccccc;
+}
+.container {
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 90% 10%;
+  background-color: var(--primary-background);
+}
+.innerTopContainer {
+  padding: 0.5rem;
+  display: flex;
+}
+@media only screen and (max-width: 768px) {
+  .innerTopContainer {
+    padding: 0;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary-background: #000000;
+    --primary-section-bg: #474747;
+  }
+}

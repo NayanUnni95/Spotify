@@ -1,7 +1,18 @@
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import AppLayout from './layout/AppLayout';
+import Home from './pages/Home/Home';
+
 function App() {
   return (
     <>
-      <h3>Spotify Clone</h3>
+      <Router>
+        <Routes>
+          <Route path="/" element={<AppLayout />}>
+            <Route index element={<Home />} />
+          </Route>
+        </Routes>
+      </Router>
     </>
   );
 }

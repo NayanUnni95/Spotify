@@ -1,0 +1,42 @@
+a {
+  text-decoration: none;
+  color: #ffffff;
+}
+.menuSection {
+  display: flex;
+  flex-direction: column;
+  font-size: larger;
+  text-transform: capitalize;
+  font-weight: 700;
+  font-family: 'Josefin Sans', sans-serif;
+  background-color: var(--primary-section-bg);
+  border-radius: 0.5rem;
+}
+.homeDiv {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  padding: 1rem;
+  cursor: pointer;
+}
+.searchDiv {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  padding: 1rem;
+  cursor: pointer;
+}
+.homeSpanDiv {
+  margin-left: 1rem;
+}
+.searchSpanDiv {
+  margin-left: 1rem;
+}
+@media only screen and (max-width: 768px) {
+  .homeSpanDiv {
+    display: none;
+  }
+  .searchSpanDiv {
+    display: none;
+  }
+}

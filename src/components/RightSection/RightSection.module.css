@@ -1,0 +1,16 @@
+.rightSection {
+  width: 30%;
+  background-color: var(--primary-section-bg);
+  border-radius: 0.5rem;
+}
+@media only screen and (max-width: 768px) {
+  .rightSection {
+    width: 50%;
+    border-radius: 0;
+  }
+}
+@media only screen and (max-width: 425px) {
+  .rightSection {
+    display: none;
+  }
+}
