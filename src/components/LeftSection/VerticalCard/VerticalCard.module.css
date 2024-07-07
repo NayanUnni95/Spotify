@@ -1,35 +1,9 @@
-a {
-  text-decoration: none;
-  color: #ffffff;
-}
-.librarySection {
-  display: flex;
-  flex-direction: column;
-  font-size: larger;
-  text-transform: capitalize;
-  font-weight: 700;
-  font-family: 'Josefin Sans', sans-serif;
-  background-color: var(--primary-section-bg);
-  border-radius: 0.5rem;
-  padding: 1rem;
-  margin-top: 0.5rem;
-}
-.libraryLabel {
-  display: flex;
-  justify-content: start;
-  align-items: center;
-}
-.librarySpanDiv {
-  margin-left: 1rem;
-  color: var(--primary-font-color);
-}
 .libraryVerticalScroll {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  min-height: 120px;
-  /* max-height: 23.5rem; */
-  max-height: 50vh;
+  max-height: 120px;
+  max-height: 23.5rem;
   overflow-y: scroll;
 }
 .verticalCard {
@@ -46,8 +20,8 @@ a {
   border-radius: 5rem;
 }
 .verticalCardImg > img {
-  width: 64px;
-  height: 64px;
+  width: 48px;
+  height: 48px;
 }
 .circleImg {
   border-radius: inherit;
@@ -64,24 +38,25 @@ a {
   justify-content: center;
   margin: 0.5rem;
   color: var(--primary-font-color);
+  overflow: hidden;
 }
 .verticalCardDesc {
   display: flex;
 }
 @media only screen and (max-width: 768px) {
-  .librarySection {
-    align-items: center;
-  }
-  .librarySpanDiv {
-    display: none;
-  }
   .verticalCardDetails {
     display: none;
   }
   .verticalCard {
     padding: 0;
   }
+  .libraryVerticalScroll::-webkit-scrollbar {
+    display: none;
+  }
 }
+/* @media only screen and (max-width: 425px) {
+  
+} */
 .libraryVerticalScroll::-webkit-scrollbar {
   width: 1rem;
 }

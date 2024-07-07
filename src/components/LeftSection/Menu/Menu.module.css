@@ -28,11 +28,17 @@ a {
 }
 .homeSpanDiv {
   margin-left: 1rem;
+  color: var(--primary-font-color);
 }
 .searchSpanDiv {
   margin-left: 1rem;
+  color: var(--primary-font-color);
 }
 @media only screen and (max-width: 768px) {
+  .menuSection {
+    align-items: center;
+    justify-content: center;
+  }
   .homeSpanDiv {
     display: none;
   }

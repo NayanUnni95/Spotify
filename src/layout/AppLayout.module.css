@@ -1,6 +1,7 @@
 :root {
   --primary-background: #ffffff;
   --primary-section-bg: #cccccc;
+  --primary-font-color: #272727;
 }
 .container {
   height: 100vh;
@@ -12,7 +13,7 @@
   padding: 0.5rem;
   display: flex;
 }
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 425px) {
   .innerTopContainer {
     padding: 0;
   }
@@ -20,6 +21,7 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --primary-background: #000000;
-    --primary-section-bg: #474747;
+    --primary-section-bg: #1a1a1a;
+    --primary-font-color: #e9e9e9;
   }
 }
