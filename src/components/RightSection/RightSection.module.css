@@ -2,6 +2,7 @@
   width: 30%;
   background-color: var(--primary-section-bg);
   border-radius: 0.5rem;
+  margin-left: 0.5rem;
 }
 @media only screen and (max-width: 768px) {
   .rightSection {

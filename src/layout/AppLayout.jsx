@@ -1,7 +1,7 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
 import LeftSection from '../components/LeftSection/LeftSection';
-import RightSection from '../components/RightSection/RightSection';
+// import RightSection from '../components/RightSection/RightSection';
 import BottomSection from '../components/BottomSection/BottomSection';
 import styles from './AppLayout.module.css';
 
@@ -11,7 +11,7 @@ function AppLayout() {
       <div className={styles.innerTopContainer}>
         <LeftSection />
         <Outlet />
-        <RightSection />
+        {/* <RightSection /> */}
       </div>
       <BottomSection />
     </div>

@@ -1,0 +1,44 @@
+.navbarSection {
+  --div-margin: 0.5rem;
+  --primary-button-bg: rgba(63, 63, 63, 0.61);
+  --primary-button-hover-bg: rgba(116, 116, 116, 0.61);
+  border-radius: 0.5rem 0.5rem 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.navButton {
+  display: flex;
+}
+.navButton > button {
+  margin: var(--div-margin);
+  padding: 0.4rem;
+  border-radius: 5rem;
+  background-color: var(--primary-button-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none !important;
+  cursor: not-allowed;
+}
+.navButton > button:hover {
+  background-color: var(--primary-button-hover-bg);
+}
+.navProfile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.3rem;
+  margin: var(--div-margin);
+  background-color: var(--primary-button-bg);
+  border-radius: 3rem;
+  cursor: pointer;
+}
+.navProfile:hover {
+  background-color: var(--primary-button-hover-bg);
+}
+.profileImg {
+  width: 1.7rem;
+  height: 1.7rem;
+  border-radius: 50%;
+}
