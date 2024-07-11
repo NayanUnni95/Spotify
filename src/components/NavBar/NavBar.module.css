@@ -8,9 +8,21 @@
   justify-content: space-between;
   position: sticky;
   top: 0;
+  --linear-background-color: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0)
+  );
+}
+.bgBlur {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(10px);
 }
 .navButton {
   display: flex;
+  backdrop-filter: blur(0);
 }
 .navButton > button {
   margin: var(--div-margin);
@@ -35,6 +47,7 @@
   background-color: var(--primary-button-bg);
   border-radius: 3rem;
   cursor: pointer;
+  backdrop-filter: blur(0);
 }
 .navProfile:hover {
   background-color: var(--primary-button-hover-bg);

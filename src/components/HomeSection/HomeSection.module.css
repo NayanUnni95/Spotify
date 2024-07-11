@@ -2,7 +2,7 @@
   width: 100%;
   background-color: var(--primary-section-bg);
   border-radius: 0.5rem;
-  overflow: scroll;
+  overflow-y: scroll;
 }
 .homeSection::-webkit-scrollbar {
   display: none;

@@ -5,6 +5,7 @@ import styles from './NavBar.module.css';
 function NavBar() {
   return (
     <div className={styles.navbarSection}>
+      <div className={styles.bgBlur} />
       <div className={styles.navButton}>
         <button>
           <Icon name={'left'} size={20} />

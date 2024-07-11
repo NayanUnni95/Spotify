@@ -1,0 +1,80 @@
+.horizontalContainer {
+  display: grid;
+  --primary-card-bg: rgba(174, 174, 174, 0.77);
+  --des-font-color: rgba(0, 0, 0, 0.53);
+}
+.innerContainer {
+  padding: 1.5rem;
+  display: flex;
+  overflow-x: scroll;
+}
+.innerContainer::-webkit-scrollbar {
+  display: none;
+}
+.categoryTitle {
+  padding-left: 1.5rem;
+  color: var(--primary-font-color);
+}
+.cardSection {
+  margin-right: 1.5rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--playlist-card-bg);
+  cursor: pointer;
+}
+.cardImg {
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+.cardInfo {
+  padding: 0.5rem;
+  text-transform: capitalize;
+  overflow: hidden;
+}
+.cardTitle {
+  color: var(--primary-font-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cardImg > img {
+  width: 180px;
+  height: 180px;
+}
+.cardDes {
+  color: var(--des-font-color);
+}
+.cardDes:hover {
+  animation: scroll 10s linear infinite;
+}
+.text {
+  width: 7em;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.text:hover {
+  overflow: visible;
+}
+@media only screen and (max-width: 425px) {
+  .cardImg > img {
+    width: 148px;
+    height: 148px;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  .horizontalContainer {
+    --des-font-color: rgba(255, 255, 255, 0.53);
+  }
+}
+@keyframes scroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}

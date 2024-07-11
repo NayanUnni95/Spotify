@@ -1,6 +1,5 @@
 .topPlaylistSection {
   padding: 1.5rem;
-  --playlist-card-bg: rgba(49, 49, 49, 0.68);
   --playlist-card-hover-bg: rgba(90, 90, 90, 0.637);
 }
 .innerSection {
