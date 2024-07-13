@@ -1,0 +1,8 @@
+.volumePanelContainer {
+  background-color: violet;
+}
+@media only screen and (max-width: 768px) {
+  .volumePanelContainer {
+    display: none;
+  }
+}

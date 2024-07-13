@@ -2,6 +2,9 @@
 
 This repository contains a Spotify Clone Web App built using ReactJS and the Spotify Web API. The app is designed for fetches data through a personal Spotify account. This project focuses on the frontend functionality, including data fetching, authentication, but does not include the music playback feature.
 
+> [!NOTE]
+> Currently, this app is not using any APIs as it is still in the design phase...
+
 ## Features
 
 - User authentication using Spotify OAuth
@@ -94,4 +97,4 @@ npx prettier --write <filename>
 
 ### License
 
-This project is licensed under the MIT License. See the [LICENSE]() file for details.
+This project is licensed under the MIT License. See the [LICENSE](./LICENSE) file for details.

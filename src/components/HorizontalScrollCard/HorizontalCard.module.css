@@ -1,7 +1,6 @@
 .horizontalContainer {
   display: grid;
   --primary-card-bg: rgba(174, 174, 174, 0.77);
-  --des-font-color: rgba(0, 0, 0, 0.53);
 }
 .innerContainer {
   padding: 1.5rem;
@@ -63,11 +62,6 @@
   .cardImg > img {
     width: 148px;
     height: 148px;
-  }
-}
-@media (prefers-color-scheme: dark) {
-  .horizontalContainer {
-    --des-font-color: rgba(255, 255, 255, 0.53);
   }
 }
 @keyframes scroll {

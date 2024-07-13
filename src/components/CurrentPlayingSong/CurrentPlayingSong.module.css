@@ -1,0 +1,51 @@
+.songDetailsContainer {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+}
+.innerContainer {
+  display: flex;
+  margin-left: 0.5rem;
+}
+.imgContainer {
+  border-radius: 3px;
+  overflow: hidden;
+}
+img {
+  display: block;
+}
+.detailsContainer {
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: space-evenly;
+}
+.itemTitle {
+  color: var(--primary-font-color);
+}
+.itemDes {
+  color: var(--des-font-color);
+  font-size: small;
+  font-weight: 300;
+  /* animation: scroll 10s linear infinite; */
+  overflow: hidden;
+}
+.text {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+@media only screen and (max-width: 425px) {
+  .text {
+    width: 7em;
+  }
+}
+@keyframes scroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
