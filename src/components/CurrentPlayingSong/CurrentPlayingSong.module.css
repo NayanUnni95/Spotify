@@ -36,7 +36,7 @@ img {
   white-space: nowrap;
   text-overflow: ellipsis;
 }
-@media only screen and (max-width: 425px) {
+@media only screen and (max-width: 500px) {
   .text {
     width: 7em;
   }
