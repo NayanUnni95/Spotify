@@ -1,0 +1,21 @@
+.bottomContainer {
+  width: 100dvw;
+  background-color: var(--primary-section-bg);
+  position: absolute;
+  bottom: 0;
+  display: none;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.homeIcon,
+.searchIcon,
+.libraryIcon {
+  padding: 1rem;
+}
+@media only screen and (max-width: 425px) {
+  .bottomContainer {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+  }
+}

@@ -12,4 +12,7 @@
   .innerTopContainer {
     padding: 0;
   }
+  .container {
+    grid-template-rows: 100%;
+  }
 }

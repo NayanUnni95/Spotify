@@ -4,6 +4,7 @@ import LeftSection from '../components/LeftSection/LeftSection';
 // import RightSection from '../components/RightSection/RightSection';
 import BottomSection from '../components/BottomSection/BottomSection';
 import styles from './AppLayout.module.css';
+import MobileBottomNavBar from '../components/MobileBottomNavBar/MobileBottomNavBar';
 
 function AppLayout() {
   return (
@@ -14,6 +15,7 @@ function AppLayout() {
         {/* <RightSection /> */}
       </div>
       <BottomSection />
+      <MobileBottomNavBar />
     </div>
   );
 }

@@ -41,6 +41,11 @@ img {
     width: 7em;
   }
 }
+@media only screen and (max-width: 425px) {
+  .innerContainer {
+    margin: 0;
+  }
+}
 @keyframes scroll {
   0% {
     transform: translateX(0%);

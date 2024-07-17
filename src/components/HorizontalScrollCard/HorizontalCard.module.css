@@ -63,6 +63,12 @@
     width: 148px;
     height: 148px;
   }
+  .cardSection {
+    background: none;
+  }
+  .cardImg {
+    border-radius: .2rem;
+  }
 }
 @keyframes scroll {
   0% {
