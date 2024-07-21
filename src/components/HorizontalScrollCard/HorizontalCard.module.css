@@ -67,7 +67,7 @@
     background: none;
   }
   .cardImg {
-    border-radius: .2rem;
+    border-radius: 0.2rem;
   }
 }
 @keyframes scroll {

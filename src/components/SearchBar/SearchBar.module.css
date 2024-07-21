@@ -1,0 +1,40 @@
+.searchBarContainer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.innerContainer {
+  width: 90%;
+  background-color: var(--playlist-card-bg);
+  display: flex;
+  border-radius: 5rem;
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+}
+.innerContainer:hover {
+  background-color: rgba(104, 104, 104, 0.473);
+}
+.innerContainer:has(input:focus) {
+  border: solid 2px var(--primary-background);
+}
+.iconSection {
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.inputSection {
+  width: inherit;
+}
+.searchInput {
+  width: inherit;
+  outline: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: medium;
+  cursor: pointer;
+}

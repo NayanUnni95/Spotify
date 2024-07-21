@@ -1,6 +1,7 @@
 .bottomContainer {
+  --linear-fade-bg: linear-gradient(180deg, rgb(0 0 0 / 37%), rgb(0 0 0));
   width: 100dvw;
-  background-color: var(--primary-section-bg);
+  background-image: var(--linear-fade-bg);
   position: absolute;
   bottom: 0;
   display: none;
