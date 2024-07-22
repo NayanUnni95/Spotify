@@ -19,7 +19,7 @@
 .playlistCell:hover {
   background-color: var(--playlist-card-hover-bg);
 }
-img {
+.playlistImg > img {
   width: 48px;
   height: 48px;
 }

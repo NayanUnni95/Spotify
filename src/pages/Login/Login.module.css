@@ -1,0 +1,101 @@
+.loginContainer {
+  width: 100%;
+  height: 100vh;
+  background-color: var(--primary-background);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.innerContainer {
+  width: 20rem;
+  background-color: #1db954;
+  padding: 2rem;
+  border-radius: 0.5rem;
+}
+.logoSection {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.logoSection > img {
+  width: 60%;
+  height: 100%;
+}
+.title {
+  margin: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: capitalize;
+  color: var(--primary-background);
+}
+.contentSection {
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.2;
+  color: var(--primary-background);
+}
+.contentSection > div > span {
+  font-weight: 500;
+}
+.conditionSection {
+  height: 7rem;
+  overflow-y: scroll;
+  color: var(--primary-font-color);
+}
+.conditionSection::-webkit-scrollbar {
+  width: 0.6rem;
+}
+.conditionSection::-webkit-scrollbar-track {
+  border-radius: 0.5rem;
+  background: var(--primary-background);
+}
+.conditionSection::-webkit-scrollbar-thumb {
+  background-color: rgba(121, 121, 121, 0.466);
+  border-radius: 1rem;
+  border: 3px solid var(--primary-background);
+}
+
+.conditionSection > ul > li {
+  margin: 1rem;
+}
+.conditionSection > ul > li > span {
+  background-color: #70707070;
+}
+.btnSection {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.loginBtn {
+  font-size: larger;
+  font-weight: bolder;
+  width: 15rem;
+  border-radius: 5rem;
+  padding: 1rem;
+  text-transform: capitalize;
+  border: none;
+  color: #1db954;
+  background-color: var(--primary-background);
+  cursor: pointer;
+}
+a {
+  color: rgba(0, 0, 255, 0.596);
+  text-decoration: none;
+}
+@media only screen and (max-width: 425px) {
+  .innerContainer {
+    width: 100dvw;
+    height: 100vh;
+    padding: 0;
+    border-radius: 0;
+  }
+  .innerContainer > div:not(.btnSection) {
+    margin: 1rem;
+  }
+  .conditionSection {
+    height: 15rem;
+  }
+}

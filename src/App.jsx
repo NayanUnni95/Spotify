@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import AppLayout from './layout/AppLayout';
 import Home from './pages/Home/Home';
 import Search from './pages/Search/Search';
+import Login from './pages/Login/Login';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
             <Route index element={<Home />} />
             <Route path="/search" exact element={<Search />} />
           </Route>
+          <Route path="/login" exact element={<Login />} />
         </Routes>
       </Router>
     </>
