@@ -14,20 +14,7 @@ function BottomSection() {
         width: 64,
       },
     ],
-    artists: [
-      {
-        name: 'M.H.R',
-      },
-      {
-        name: 'JOKER390P',
-      },
-      {
-        name: 'SA',
-      },
-      {
-        name: 'Dabzee',
-      },
-    ],
+    artists: ['M.H.R', 'JOKER390P', 'SA', 'Dabzee'],
     source: {
       quality: '320kbps',
       url: 'https://aac.saavncdn.com/504/05b2fb10b4d21f8422e78412ea344ac5_320.mp4',

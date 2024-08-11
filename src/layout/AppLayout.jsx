@@ -1,14 +1,23 @@
-import React, { useEffect } from 'react';
-import { Outlet } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Outlet, useNavigate } from 'react-router-dom';
 import LeftSection from '../components/LeftSection/LeftSection';
-// import RightSection from '../components/RightSection/RightSection';
+import RightSection from '../components/RightSection/RightSection';
 import BottomSection from '../components/BottomSection/BottomSection';
 import styles from './AppLayout.module.css';
 import MobileBottomNavBar from '../components/MobileBottomNavBar/MobileBottomNavBar';
+import MusicPanel from '../pages/MusicPanel/MusicPanel';
 import { useAuth } from '../hooks/useAuth';
+import ControllerContext from '../context/ControllerContext';
+
+const MyContext = React.createContext();
 
 function AppLayout() {
-  const { spotifyAuthReturnParams, setToken } = useAuth();
+  const { spotifyAuthReturnParams, setToken, getToken } = useAuth();
+  const navigate = useNavigate();
+  const [showPlayer, setShowPlayer] = useState(false);
+  const [showRightPanel, setShowRightPanel] = useState(false);
+  const { playAudio, pauseAudio, muteAudio } = ControllerContext();
+
   useEffect(() => {
     if (window.location.hash) {
       const expires_in = Date.now();
@@ -16,18 +25,33 @@ function AppLayout() {
       setToken(access_token, expires_in);
       window.location = '';
     }
+    if (!getToken()) navigate('/login');
   }, []);
   return (
     <div className={styles.container}>
       <div className={styles.innerTopContainer}>
         <LeftSection />
         <Outlet />
-        {/* <RightSection /> */}
+        {showRightPanel ? <RightSection /> : null}
       </div>
-      <BottomSection />
+      <MyContext.Provider
+        value={{
+          showPlayer,
+          setShowPlayer,
+          showRightPanel,
+          setShowRightPanel,
+          playAudio,
+          pauseAudio,
+          muteAudio,
+        }}
+      >
+        {showPlayer ? <MusicPanel /> : <BottomSection />}
+      </MyContext.Provider>
       <MobileBottomNavBar />
     </div>
   );
 }
 
 export default AppLayout;
+
+export { MyContext };

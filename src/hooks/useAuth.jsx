@@ -61,5 +61,10 @@ export const useAuth = () => {
     }
     return access_token;
   };
-  return { fetchData, spotifyAuthReturnParams, setToken, getToken };
+  return {
+    fetchData,
+    spotifyAuthReturnParams,
+    setToken,
+    getToken,
+  };
 };

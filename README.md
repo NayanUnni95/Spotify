@@ -2,8 +2,8 @@
 
 This repository contains a Spotify Clone Web App built using ReactJS and the Spotify Web API. The app is designed for fetches data through a personal Spotify account. This project focuses on the frontend functionality, including data fetching, authentication, but does not include the music playback feature.
 
-> [!NOTE]
-> Currently, this app is not using any APIs as it is still in the design phase...
+<!-- > [!NOTE]
+> Currently, this app is not using any APIs as it is still in the design phase... -->
 
 ## Features
 
@@ -31,8 +31,8 @@ This repository contains a Spotify Clone Web App built using ReactJS and the Spo
 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/spotify-clone.git
-cd spotify-clone
+git clone https://github.com/NayanUnni95/Spotify.git
+cd Spotify
 ```
 
 2. Install Dependencies
@@ -54,8 +54,8 @@ npm install
 ###### Create a .env file in the root directory of the project and add the following environment variables:
 
 ```js
-REACT_APP_SPOTIFY_CLIENT_ID=your_spotify_client_id
-REACT_APP_SPOTIFY_REDIRECT_URI=http://localhost:3000/callback
+VITE_CLIENT_ID=your_spotify_client_id
+VITE_HOME_URL=http://localhost:3000/
 
 ```
 

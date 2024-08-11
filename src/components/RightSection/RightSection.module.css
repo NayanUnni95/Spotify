@@ -1,8 +1,12 @@
 .rightSection {
+  color: var(--primary-font-color);
   width: 30%;
   background-color: var(--primary-section-bg);
   border-radius: 0.5rem;
   margin-left: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 @media only screen and (max-width: 768px) {
   .rightSection {

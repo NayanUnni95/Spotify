@@ -3,8 +3,6 @@
   box-shadow: none;
 }
 .rhap_stacked .rhap_controls-section {
-  justify-content: center;
-  align-items: center;
   margin: 0 0 0 1rem;
 }
 .rhap_progress-indicator {
@@ -22,14 +20,6 @@
 .rhap_download-progress {
   background-color: rgb(106 106 106 / 30%);
 }
-/* volume bar */
-.rhap_volume-controls {
-  justify-content: center;
-}
-/* loop btn */
-.rhap_additional-controls {
-  display: contents;
-}
 /* play/pause btn */
 .rhap_main-controls-button {
   color: var(--primary-font-color);
@@ -41,6 +31,14 @@
 }
 .rhap_progress-bar-show-download {
   background-color: var(--primary-section-bg);
+}
+/* rewind, forward btn */
+.rhap_rewind-button,
+.rhap_forward-button {
+  display: none;
+}
+.rhap_volume-controls {
+  justify-content: center;
 }
 @media only screen and (max-width: 768px) {
   .rhap_volume-controls {
@@ -54,11 +52,6 @@
   .rhap_volume-controls {
     display: none;
   }
-  /* rewind, forward btn */
-  .rhap_rewind-button,
-  .rhap_forward-button {
-    display: none;
-  }
 }
 @media only screen and (max-width: 425px) {
   .rhap_progress-section {
@@ -67,11 +60,13 @@
   .rhap_additional-controls {
     display: contents;
   }
-  .rhap_rewind-button,
-  .rhap_forward-button {
-    display: contents;
-  }
   .rhap_container {
     padding: 0;
+  }
+  .rhap_stacked .rhap_controls-section {
+    margin: 0;
+  }
+  .rhap_controls-section {
+    justify-content: space-evenly;
   }
 }

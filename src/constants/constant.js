@@ -3,7 +3,7 @@ const Base_URL = 'https://api.spotify.com/v1';
 const Liked_Songs = '/me/tracks?limit=50';
 const Albums = '/me/albums';
 const Playlist = '/me/playlists';
-const Artists = '/me/following';
+const Artists = '/me/following?type=artist';
 const Several_Category = 'browse/categories';
 const Several_Albums = '/albums';
 const New_Release = '/browse/new-releases';
