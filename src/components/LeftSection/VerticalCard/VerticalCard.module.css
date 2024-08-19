@@ -32,16 +32,23 @@
 .verticalCardDetails {
   display: flex;
   flex-direction: column;
-  font-weight: 500;
-  font-size: medium;
   align-items: start;
   justify-content: center;
   margin: 0.5rem;
   color: var(--primary-font-color);
   overflow: hidden;
 }
+.verticalCardTitle {
+  font-weight: 500;
+  font-size: medium;
+}
 .verticalCardDesc {
+  font-weight: 300;
+  font-size: smaller;
   display: flex;
+}
+.verticalCardDesc div {
+  margin: 0.2rem;
 }
 @media only screen and (max-width: 768px) {
   .verticalCardDetails {

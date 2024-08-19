@@ -10,10 +10,10 @@ import {
   Playlist,
   Artists,
 } from '../../../constants/constant';
+import { DataCleanUp } from '../../../constants/cleanUpData';
 
 function Library() {
   const [data, setData] = useState(null);
-
   const { fetchData } = useAuth();
   useEffect(() => {
     Promise.all([
@@ -23,7 +23,8 @@ function Library() {
       fetchData(Artists),
     ])
       .then((res) => {
-        setData(res);
+        // custom data cleanup function for arrange unordered data to ordered data
+        setData(DataCleanUp(res));
       })
       .catch((err) => {
         console.log(err);
@@ -39,7 +40,7 @@ function Library() {
           <span>library</span>
         </div>
       </div>
-      {data ? <VerticalCard /> : <VerticalCardSkeleton />}
+      {data ? <VerticalCard collectionData={data} /> : <VerticalCardSkeleton />}
     </div>
   );
 }

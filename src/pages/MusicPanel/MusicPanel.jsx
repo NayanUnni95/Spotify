@@ -1,6 +1,7 @@
-import React, { useState, useContext, useRef } from 'react';
-import AudioProvider from '../../components/AudioProvider/AudioProvider';
+import React, { useEffect, useContext, useRef } from 'react';
+import CustomProgressbar from '../../components/ProgressBar/CustomProgressbar';
 import { MyContext } from '../../layout/AppLayout';
+import { AudioContext } from '../../context/AudioContext';
 import { Icon } from '../../Icons';
 import { IoIosArrowDown } from 'react-icons/io';
 import { IoPlaySharp, IoPause, IoAddCircleOutline } from 'react-icons/io5';
@@ -9,42 +10,7 @@ import { TbRepeat } from 'react-icons/tb';
 import { RxShuffle } from 'react-icons/rx';
 import { MdSkipPrevious, MdSkipNext } from 'react-icons/md';
 import { HiOutlineVolumeUp, HiOutlineVolumeOff } from 'react-icons/hi';
-import styled from 'styled-components';
 import styles from './MusicPanel.module.css';
-
-const CustomAudioPlayerWrapper = styled.div`
-  .rhap_stacked .rhap_controls-section {
-    display: none;
-  }
-  .rhap_container {
-    background: none;
-    box-shadow: none;
-  }
-  .rhap_progress-filled {
-    background-color: var(--primary-font-color);
-  }
-  .rhap_progress-filled:hover {
-    background-color: #1db954;
-  }
-  .rhap_progress-indicator {
-    display: none;
-  }
-  .rhap_progress-indicator:hover {
-    background-color: #1db954;
-  }
-  .rhap_download-progress {
-    background-color: rgb(106 106 106 / 30%);
-  }
-  .rhap_time {
-    color: var(--primary-background) !important;
-  }
-  @media only screen and (max-width: 425px) {
-    .rhap_progress-section {
-      display: flex;
-      margin: 1rem;
-    }
-  }
-`;
 
 function MusicPanel() {
   const data = {
@@ -91,12 +57,21 @@ function MusicPanel() {
       },
     ],
   };
-
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [repeat, setRepeat] = useState(false);
-  const [mute, setMute] = useState(false);
-  const { showPlayer, setShowPlayer, playAudio, pauseAudio, muteAudio } =
-    useContext(MyContext);
+  const { showPlayer, setShowPlayer } = useContext(MyContext);
+  const {
+    playAudio,
+    pauseAudio,
+    muteAudio,
+    isPlaying,
+    setIsPlaying,
+    repeat,
+    setRepeat,
+    shuffle,
+    setShuffle,
+    mute,
+    setMute,
+  } = useContext(AudioContext);
+  // setIsPlaying(false); // change button state while page switch
   const playerRef = useRef();
 
   const updatePlayer = () => setShowPlayer(!showPlayer);
@@ -106,13 +81,18 @@ function MusicPanel() {
   };
   const muteUnmute = () => muteAudio(playerRef);
 
+  useEffect(() => {
+    return () => {
+      setIsPlaying(false); // change button state while page switch
+    };
+  }, []);
   return (
     <div className={styles.musicPanelContainer}>
       <div className={styles.fadeLayer}></div>
       <div className={styles.innerContainer}>
         <div className={styles.navbarSection}>
           <div className={styles.backBtnSection} onClick={updatePlayer}>
-            <IoIosArrowDown size={25} />
+            <IoIosArrowDown size={25} color={'#ffffffc7'} />
           </div>
           <div className={styles.logoSection}>
             <div>
@@ -139,13 +119,7 @@ function MusicPanel() {
         </div>
         <div className={styles.controlSection}>
           <div>
-            <CustomAudioPlayerWrapper>
-              <AudioProvider
-                url={data.downloadUrl[4].url}
-                controls={playerRef}
-                loopState={repeat}
-              />
-            </CustomAudioPlayerWrapper>
+            <CustomProgressbar />
           </div>
           <div className={styles.btnSection}>
             <div className={styles.featureBtn}>
@@ -157,8 +131,12 @@ function MusicPanel() {
             </div>
             <div className={styles.basicFunBtn}>
               <div className={styles.shuffleBtn}>
-                <button>
-                  <RxShuffle size={25} />
+                <button onClick={() => setShuffle(!shuffle)}>
+                  {shuffle ? (
+                    <RxShuffle size={22} color="#1db954" />
+                  ) : (
+                    <RxShuffle size={22} />
+                  )}
                 </button>
               </div>
               <div>

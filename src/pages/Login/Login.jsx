@@ -18,7 +18,7 @@ function Login() {
   };
 
   const login = () => {
-    window.location = config();
+    window.location.href = config();
   };
 
   return (
@@ -28,7 +28,7 @@ function Login() {
           <img src={SpotifyLogo} alt="spotify logo" />
         </div>
         <div className={styles.title}>
-          <h2>login to spotify</h2>
+          <h2>login with spotify</h2>
         </div>
         <div className={styles.contentSection}>
           <div>

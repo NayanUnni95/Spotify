@@ -2,10 +2,10 @@ button {
   cursor: pointer;
 }
 .musicPanelContainer {
-  width: 100vw;
-  height: 100vh;
+  width: 100dvw;
+  height: 100dvh;
   background-color: #1db954;
-  position: absolute;
+  position: fixed;
   z-index: 1;
   display: flex;
   align-items: center;
@@ -24,7 +24,6 @@ button {
   width: 90%;
   height: 95%;
   display: grid;
-  grid-template-rows: 1fr 4fr 1fr;
   grid-template-columns: 1fr;
   position: relative;
   z-index: 2;
@@ -141,9 +140,9 @@ button {
 .addBtn > button {
   cursor: not-allowed;
 }
-.shuffleBtn > button {
+/* .shuffleBtn > button {
   cursor: not-allowed;
-}
+} */
 .volumeBar {
   display: flex;
   align-items: center;
@@ -195,10 +194,6 @@ button {
     justify-content: center;
     flex-direction: column;
   }
-  .songImgSection > img {
-    width: 275px;
-    height: 275px;
-  }
   .TitleSection {
     font-size: x-large;
   }
@@ -214,8 +209,8 @@ button {
     height: 100%;
   }
   .songImgSection > img {
-    width: 230px;
-    height: 230px;
+    width: 300px;
+    height: 300px;
   }
   .songImgSection {
     margin: 0;

@@ -13,10 +13,9 @@
     "axios": "^1.7.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-h5-audio-player": "^3.9.3",
     "react-icons": "^5.2.1",
+    "react-player": "^2.16.0",
     "react-router-dom": "^6.24.1",
-    "styled-components": "^6.1.12",
     "universal-cookie": "^7.2.0"
   },
   "devDependencies": {

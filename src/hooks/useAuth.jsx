@@ -4,17 +4,22 @@ import { instance as axios } from '../axios/configuration';
 export const useAuth = () => {
   const fetchData = async (endpoint) => {
     const token = getToken();
-    let maxRetries = 3;
     if (token) {
       const config = {
         headers: {
           Authorization: 'Bearer ' + token,
         },
       };
+      const maxRetries = 3; // Maximum number of attempts
+      const timeDuration = 1000; // Api call duration in seconds
       for (let retries = 0; retries < maxRetries; retries++) {
         try {
-          const response = await axios.get(endpoint, config).catch((err) => {
-            console.log(err);
+          const response = await axios.get(endpoint, config).catch((error) => {
+            if (error.response && error.response.status === 403) {
+              console.error('Access forbidden: Check your scopes and token.');
+            } else {
+              console.error('An error occurred:', error.message);
+            }
           });
           return response.data;
         } catch (err) {
@@ -23,7 +28,7 @@ export const useAuth = () => {
             return null;
           } else {
             await new Promise((resolve) => {
-              setTimeout(resolve, 1000);
+              setTimeout(resolve, timeDuration);
             });
           }
         }

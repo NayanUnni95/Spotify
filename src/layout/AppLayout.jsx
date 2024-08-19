@@ -7,7 +7,7 @@ import styles from './AppLayout.module.css';
 import MobileBottomNavBar from '../components/MobileBottomNavBar/MobileBottomNavBar';
 import MusicPanel from '../pages/MusicPanel/MusicPanel';
 import { useAuth } from '../hooks/useAuth';
-import ControllerContext from '../context/ControllerContext';
+import AudioContext from '../context/AudioContext';
 
 const MyContext = React.createContext();
 
@@ -16,7 +16,6 @@ function AppLayout() {
   const navigate = useNavigate();
   const [showPlayer, setShowPlayer] = useState(false);
   const [showRightPanel, setShowRightPanel] = useState(false);
-  const { playAudio, pauseAudio, muteAudio } = ControllerContext();
 
   useEffect(() => {
     if (window.location.hash) {
@@ -34,18 +33,18 @@ function AppLayout() {
         <Outlet />
         {showRightPanel ? <RightSection /> : null}
       </div>
+
       <MyContext.Provider
         value={{
           showPlayer,
           setShowPlayer,
           showRightPanel,
           setShowRightPanel,
-          playAudio,
-          pauseAudio,
-          muteAudio,
         }}
       >
-        {showPlayer ? <MusicPanel /> : <BottomSection />}
+        <AudioContext>
+          {showPlayer ? <MusicPanel /> : <BottomSection />}
+        </AudioContext>
       </MyContext.Provider>
       <MobileBottomNavBar />
     </div>

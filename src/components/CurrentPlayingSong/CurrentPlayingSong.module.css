@@ -23,6 +23,7 @@
   flex-direction: column;
   align-items: start;
   justify-content: space-evenly;
+  text-transform: capitalize;
 }
 .itemTitle {
   color: var(--primary-font-color);

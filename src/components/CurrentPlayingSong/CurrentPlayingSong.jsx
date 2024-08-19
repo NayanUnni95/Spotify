@@ -1,9 +1,11 @@
 import React, { useContext } from 'react';
 import styles from './CurrentPlayingSong.module.css';
 import { MyContext } from '../../layout/AppLayout';
+import { AudioContext } from '../../context/AudioContext';
 
-function BottomSongDetails({ TrackData }) {
+function BottomSongDetails() {
   const { showPlayer, setShowPlayer } = useContext(MyContext);
+  const { TrackData } = useContext(AudioContext);
   return (
     <div
       className={styles.songDetailsContainer}

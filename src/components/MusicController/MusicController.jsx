@@ -1,8 +1,7 @@
-import React, { useState, useContext, useRef } from 'react';
+import React, { useEffect, useContext, useRef } from 'react';
 import styles from './MusicController.module.css';
-import 'react-h5-audio-player/lib/styles.css';
-import AudioProvider from '../../components/AudioProvider/AudioProvider';
 import { MyContext } from '../../layout/AppLayout';
+import { AudioContext } from '../../context/AudioContext';
 import { BiCaretRightSquare, BiCaretLeftSquare } from 'react-icons/bi';
 import { HiOutlineQueueList } from 'react-icons/hi2';
 import { CgMusicSpeaker } from 'react-icons/cg';
@@ -12,49 +11,24 @@ import { IoPlaySharp, IoPause } from 'react-icons/io5';
 import { TbRepeat } from 'react-icons/tb';
 import { RxShuffle } from 'react-icons/rx';
 import { MdSkipPrevious, MdSkipNext } from 'react-icons/md';
-import styled from 'styled-components';
+import CustomProgressbar from '../ProgressBar/CustomProgressbar';
 
-const AudioPlayerWrapper = styled.div`
-  .rhap_stacked .rhap_controls-section {
-    display: none;
-  }
-  .rhap_container {
-    background: none;
-    padding: 0;
-  }
-  .rhap_progress-indicator {
-    display: none;
-  }
-  .rhap_progress-filled {
-    background-color: #ffffff;
-  }
-  .rhap_progress-filled:hover {
-    background-color: #1db954;
-  }
-  .rhap_download-progress {
-    background-color: #232323d6;
-  }
-  .rhap_progress-bar-show-download {
-    background-color: #4d4d4d;
-  }
-  .rhap_time {
-    color: var(--primary-font-color);
-  }
-`;
-function MusicController({ TrackData }) {
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [repeat, setRepeat] = useState(false);
-  const [shuffle, setShuffle] = useState(false);
-  const [mute, setMute] = useState(false);
+function MusicController() {
+  const { showPlayer, setShowPlayer, showRightPanel, setShowRightPanel } =
+    useContext(MyContext);
   const {
-    showPlayer,
-    setShowPlayer,
-    showRightPanel,
-    setShowRightPanel,
     playAudio,
     pauseAudio,
     muteAudio,
-  } = useContext(MyContext);
+    isPlaying,
+    setIsPlaying,
+    repeat,
+    setRepeat,
+    shuffle,
+    setShuffle,
+    mute,
+    setMute,
+  } = useContext(AudioContext);
   const playerRef = useRef();
 
   const updatePlayer = () => {
@@ -68,6 +42,12 @@ function MusicController({ TrackData }) {
     else playAudio(playerRef);
   };
   const muteUnmute = () => muteAudio(playerRef);
+
+  useEffect(() => {
+    return () => {
+      setIsPlaying(false); // change button state while page switch
+    };
+  }, []);
 
   return (
     <div className={styles.musicContainer}>
@@ -113,13 +93,9 @@ function MusicController({ TrackData }) {
               </button>
             </div>
           </div>
-          <AudioPlayerWrapper className={styles.progressBar}>
-            <AudioProvider
-              url={TrackData.source.url}
-              controls={playerRef}
-              loopState={repeat}
-            />
-          </AudioPlayerWrapper>
+          <div className={styles.progressBar}>
+            <CustomProgressbar />
+          </div>
         </div>
         <div className={styles.featureBtnSection}>
           <div className={styles.rightSidePanelBtn}>
