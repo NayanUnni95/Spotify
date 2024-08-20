@@ -1,4 +1,4 @@
-import React, { useEffect, useContext, useRef } from 'react';
+import React, { useContext } from 'react';
 import CustomProgressbar from '../../components/ProgressBar/CustomProgressbar';
 import { MyContext } from '../../layout/AppLayout';
 import { AudioContext } from '../../context/AudioContext';
@@ -13,85 +13,24 @@ import { HiOutlineVolumeUp, HiOutlineVolumeOff } from 'react-icons/hi';
 import styles from './MusicPanel.module.css';
 
 function MusicPanel() {
-  const data = {
-    name: 'malabari banger',
-    artist: ['dabzee', 'mhr', 'joker', 'sa'],
-    playlist: 'trending now malayalam',
-    images: [
-      {
-        url: 'https://i.scdn.co/image/ab67616d0000b2730a5fda5bb1a466fc1ee47d56',
-        height: 640,
-        width: 640,
-      },
-      {
-        url: 'https://i.scdn.co/image/ab67616d00001e020a5fda5bb1a466fc1ee47d56',
-        height: 300,
-        width: 300,
-      },
-      {
-        url: 'https://i.scdn.co/image/ab67616d000048510a5fda5bb1a466fc1ee47d56',
-        height: 64,
-        width: 64,
-      },
-    ],
-    downloadUrl: [
-      {
-        quality: '12kbps',
-        url: 'https://aac.saavncdn.com/504/05b2fb10b4d21f8422e78412ea344ac5_12.mp4',
-      },
-      {
-        quality: '48kbps',
-        url: 'https://aac.saavncdn.com/504/05b2fb10b4d21f8422e78412ea344ac5_48.mp4',
-      },
-      {
-        quality: '96kbps',
-        url: 'https://aac.saavncdn.com/504/05b2fb10b4d21f8422e78412ea344ac5_96.mp4',
-      },
-      {
-        quality: '160kbps',
-        url: 'https://aac.saavncdn.com/504/05b2fb10b4d21f8422e78412ea344ac5_160.mp4',
-      },
-      {
-        quality: '320kbps',
-        url: 'https://aac.saavncdn.com/504/05b2fb10b4d21f8422e78412ea344ac5_320.mp4',
-      },
-    ],
-  };
-  const { showPlayer, setShowPlayer } = useContext(MyContext);
+  const { togglePlayerWindow } = useContext(MyContext);
   const {
-    playAudio,
-    pauseAudio,
+    playPause,
+    toggleRepeat,
+    toggleShuffle,
     muteAudio,
     isPlaying,
-    setIsPlaying,
     repeat,
-    setRepeat,
     shuffle,
-    setShuffle,
     mute,
-    setMute,
+    TrackData,
   } = useContext(AudioContext);
-  // setIsPlaying(false); // change button state while page switch
-  const playerRef = useRef();
-
-  const updatePlayer = () => setShowPlayer(!showPlayer);
-  const playPause = () => {
-    if (!isPlaying) playAudio(playerRef);
-    else pauseAudio(playerRef);
-  };
-  const muteUnmute = () => muteAudio(playerRef);
-
-  useEffect(() => {
-    return () => {
-      setIsPlaying(false); // change button state while page switch
-    };
-  }, []);
   return (
     <div className={styles.musicPanelContainer}>
       <div className={styles.fadeLayer}></div>
       <div className={styles.innerContainer}>
         <div className={styles.navbarSection}>
-          <div className={styles.backBtnSection} onClick={updatePlayer}>
+          <div className={styles.backBtnSection} onClick={togglePlayerWindow}>
             <IoIosArrowDown size={25} color={'#ffffffc7'} />
           </div>
           <div className={styles.logoSection}>
@@ -100,20 +39,22 @@ function MusicPanel() {
             </div>
             <div className={styles.playlistTitle}>
               <span className={styles.labelType}>Playing from</span>
-              <span className={styles.playlistLabelName}>{data.playlist}</span>
+              <span className={styles.playlistLabelName}>
+                {TrackData.playlist}
+              </span>
             </div>
           </div>
         </div>
         <div className={styles.dataSection}>
           <div className={styles.songImgSection}>
-            <img src={data.images[1].url} className={styles.songImg} />
+            <img src={TrackData.images[1].url} className={styles.songImg} />
           </div>
           <div className={styles.songDescContainer}>
             <div className={styles.TitleSection}>
-              <span>{data.name}</span>
+              <span>{TrackData.name}</span>
             </div>
             <div className={styles.ArtistSection}>
-              <span>{data.artist.join(', ')}</span>
+              <span>{TrackData.artists.join(', ')}</span>
             </div>
           </div>
         </div>
@@ -131,7 +72,7 @@ function MusicPanel() {
             </div>
             <div className={styles.basicFunBtn}>
               <div className={styles.shuffleBtn}>
-                <button onClick={() => setShuffle(!shuffle)}>
+                <button onClick={toggleShuffle}>
                   {shuffle ? (
                     <RxShuffle size={22} color="#1db954" />
                   ) : (
@@ -145,13 +86,7 @@ function MusicPanel() {
                 </button>
               </div>
               <div>
-                <button
-                  onClick={() => {
-                    playPause();
-                    setIsPlaying(!isPlaying);
-                  }}
-                  className={styles.ctrlBtn}
-                >
+                <button onClick={playPause} className={styles.ctrlBtn}>
                   {isPlaying ? (
                     <IoPause size={32} />
                   ) : (
@@ -165,11 +100,7 @@ function MusicPanel() {
                 </button>
               </div>
               <div className={styles.repeatBtn}>
-                <button
-                  onClick={() => {
-                    setRepeat(!repeat);
-                  }}
-                >
+                <button onClick={toggleRepeat}>
                   {repeat ? (
                     <TbRepeat size={25} color="#1db954" />
                   ) : (
@@ -180,13 +111,7 @@ function MusicPanel() {
             </div>
             <div className={styles.additionalFunBtn}>
               <div className={styles.volumeBar}>
-                <button
-                  onClick={() => {
-                    muteUnmute();
-                    setMute(!mute);
-                  }}
-                  className={styles.volumeBtn}
-                >
+                <button onClick={muteAudio} className={styles.volumeBtn}>
                   {mute ? (
                     <HiOutlineVolumeOff size={25} />
                   ) : (
@@ -196,7 +121,7 @@ function MusicPanel() {
                 <input type="range" className={styles.volumeBar} />
               </div>
               <div className={styles.exitBtn}>
-                <button onClick={updatePlayer}>
+                <button onClick={togglePlayerWindow}>
                   <BsArrowsAngleContract size={25} />
                 </button>
               </div>

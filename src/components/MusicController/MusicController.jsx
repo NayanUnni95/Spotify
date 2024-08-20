@@ -1,4 +1,4 @@
-import React, { useEffect, useContext, useRef } from 'react';
+import React, { useContext } from 'react';
 import styles from './MusicController.module.css';
 import { MyContext } from '../../layout/AppLayout';
 import { AudioContext } from '../../context/AudioContext';
@@ -14,40 +14,18 @@ import { MdSkipPrevious, MdSkipNext } from 'react-icons/md';
 import CustomProgressbar from '../ProgressBar/CustomProgressbar';
 
 function MusicController() {
-  const { showPlayer, setShowPlayer, showRightPanel, setShowRightPanel } =
+  const { showRightPanel, togglePlayerWindow, toggleRightPanel } =
     useContext(MyContext);
   const {
-    playAudio,
-    pauseAudio,
+    playPause,
     muteAudio,
+    toggleRepeat,
+    toggleShuffle,
     isPlaying,
-    setIsPlaying,
     repeat,
-    setRepeat,
     shuffle,
-    setShuffle,
     mute,
-    setMute,
   } = useContext(AudioContext);
-  const playerRef = useRef();
-
-  const updatePlayer = () => {
-    setShowPlayer(!showPlayer);
-  };
-  const RightPanel = () => {
-    setShowRightPanel(!showRightPanel);
-  };
-  const playPause = () => {
-    if (isPlaying) pauseAudio(playerRef);
-    else playAudio(playerRef);
-  };
-  const muteUnmute = () => muteAudio(playerRef);
-
-  useEffect(() => {
-    return () => {
-      setIsPlaying(false); // change button state while page switch
-    };
-  }, []);
 
   return (
     <div className={styles.musicContainer}>
@@ -55,7 +33,7 @@ function MusicController() {
         <div className={styles.mainControlSection}>
           <div className={styles.basicBtn}>
             <div className={styles.shuffleBtn}>
-              <button onClick={() => setShuffle(!shuffle)}>
+              <button onClick={toggleShuffle}>
                 {shuffle ? (
                   <RxShuffle size={22} color="#1db954" />
                 ) : (
@@ -69,12 +47,7 @@ function MusicController() {
               </button>
             </div>
             <div className={styles.ctrlBtn}>
-              <button
-                onClick={() => {
-                  playPause();
-                  setIsPlaying(!isPlaying);
-                }}
-              >
+              <button onClick={playPause}>
                 {isPlaying ? <IoPause size={25} /> : <IoPlaySharp size={25} />}
               </button>
             </div>
@@ -84,7 +57,7 @@ function MusicController() {
               </button>
             </div>
             <div className={styles.repeatBtn}>
-              <button onClick={() => setRepeat(!repeat)}>
+              <button onClick={toggleRepeat}>
                 {repeat ? (
                   <TbRepeat size={22} color="#1db954" />
                 ) : (
@@ -99,7 +72,7 @@ function MusicController() {
         </div>
         <div className={styles.featureBtnSection}>
           <div className={styles.rightSidePanelBtn}>
-            <button onClick={() => RightPanel()}>
+            <button onClick={toggleRightPanel}>
               {showRightPanel ? (
                 <BiCaretRightSquare size={19} color="#1db954" />
               ) : (
@@ -118,12 +91,7 @@ function MusicController() {
             </button>
           </div>
           <div className={styles.volumeBtn}>
-            <button
-              onClick={() => {
-                muteUnmute();
-                setMute(!mute);
-              }}
-            >
+            <button onClick={muteAudio}>
               {mute ? (
                 <HiOutlineVolumeOff size={19} />
               ) : (
@@ -135,7 +103,7 @@ function MusicController() {
             <input type="range" />
           </div>
           <div className={styles.expandBtn}>
-            <button onClick={() => updatePlayer()}>
+            <button onClick={togglePlayerWindow}>
               <BsArrowsAngleExpand size={18} />
             </button>
           </div>

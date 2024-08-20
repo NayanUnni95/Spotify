@@ -1,4 +1,4 @@
-import React, { useState, createContext, useRef } from 'react';
+import React, { useState, createContext } from 'react';
 import AudioPlayer from 'react-player';
 
 export const AudioContext = createContext();
@@ -8,20 +8,13 @@ function AudioProvider({ children }) {
   const [repeat, setRepeat] = useState(false);
   const [shuffle, setShuffle] = useState(false);
   const [mute, setMute] = useState(false);
-  const [showPlayer, setShowPlayer] = useState(false);
-  const [showRightPanel, setShowRightPanel] = useState(false);
-  const playerRef = useRef();
+  const [progress, setProgress] = useState({});
+  const [duration, setDuration] = useState(0);
 
-  const playAudio = () => {
-    playerRef.current.audio.current.play();
-  };
-  const pauseAudio = () => {
-    playerRef.current.audio.current.pause();
-  };
-  const muteAudio = () => {
-    playerRef.current.audio.current.muted =
-      !playerRef.current.audio.current.muted;
-  };
+  const playPause = () => setIsPlaying(!isPlaying);
+  const muteAudio = () => setMute(!mute);
+  const toggleRepeat = () => setRepeat(!repeat);
+  const toggleShuffle = () => setShuffle(!shuffle);
 
   // Reference data
   const TrackData = {
@@ -73,26 +66,25 @@ function AudioProvider({ children }) {
     <AudioContext.Provider
       value={{
         isPlaying,
-        setIsPlaying,
         repeat,
-        setRepeat,
         shuffle,
-        setShuffle,
         mute,
-        setMute,
-        showPlayer,
-        setShowPlayer,
-        showRightPanel,
-        setShowRightPanel,
-        playAudio,
-        pauseAudio,
         muteAudio,
+        playPause,
+        toggleRepeat,
+        toggleShuffle,
         TrackData,
+        progress,
+        duration,
       }}
     >
       <AudioPlayer
-        ref={playerRef}
         url={TrackData.downloadUrl[2].url}
+        playing={isPlaying}
+        muted={mute}
+        loop={repeat}
+        onProgress={setProgress}
+        onDuration={setDuration}
         style={{ display: 'none' }}
       />
       {children}

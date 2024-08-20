@@ -17,6 +17,9 @@ function AppLayout() {
   const [showPlayer, setShowPlayer] = useState(false);
   const [showRightPanel, setShowRightPanel] = useState(false);
 
+  const togglePlayerWindow = () => setShowPlayer(!showPlayer);
+  const toggleRightPanel = () => setShowRightPanel(!showRightPanel);
+
   useEffect(() => {
     if (window.location.hash) {
       const expires_in = Date.now();
@@ -40,6 +43,8 @@ function AppLayout() {
           setShowPlayer,
           showRightPanel,
           setShowRightPanel,
+          togglePlayerWindow,
+          toggleRightPanel,
         }}
       >
         <AudioContext>
