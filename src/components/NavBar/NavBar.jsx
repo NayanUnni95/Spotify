@@ -1,8 +1,22 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Icon } from '../../Icons';
+import { CgProfile } from 'react-icons/cg';
 import styles from './NavBar.module.css';
+import { useAuth } from '../../hooks/useAuth';
+import { Profile } from '../../constants/constant';
 
 function NavBar() {
+  const { fetchData } = useAuth();
+  const [userData, setUserData] = useState(null);
+  useEffect(() => {
+    fetchData(Profile)
+      .then((res) => {
+        setUserData(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
   return (
     <div className={styles.navbarSection}>
       <div className={styles.bgBlur} />
@@ -15,11 +29,15 @@ function NavBar() {
         </button>
       </div>
       <div className={styles.navProfile}>
-        <img
-          src="https://i.scdn.co/image/ab67757000003b8250929c52e3fb543734ac5660"
-          className={styles.profileImg}
-          alt="avatar"
-        />
+        {userData && userData.images.length != 0 ? (
+          <img
+            src={userData.images[0].url}
+            className={styles.profileImg}
+            alt="avatar"
+          />
+        ) : (
+          <CgProfile size={25} color="var(--primary-font-color)" />
+        )}
       </div>
     </div>
   );

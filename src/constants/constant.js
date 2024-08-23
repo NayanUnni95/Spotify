@@ -15,6 +15,7 @@ const Artists_TopTracks = '/artists/{id}/top-tracks';
 const Several_Artists = '/artists';
 const Several_BrowserCategory = '/browse/categories';
 const Search_Item = '/search';
+const Profile = '/me';
 
 export {
   Token_URL,
@@ -34,4 +35,5 @@ export {
   Several_Artists,
   Several_BrowserCategory,
   Search_Item,
+  Profile,
 };

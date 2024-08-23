@@ -1,4 +1,4 @@
-import React, { useState, createContext } from 'react';
+import React, { useState, createContext, useRef } from 'react';
 import AudioPlayer from 'react-player';
 
 export const AudioContext = createContext();
@@ -10,11 +10,15 @@ function AudioProvider({ children }) {
   const [mute, setMute] = useState(false);
   const [progress, setProgress] = useState({});
   const [duration, setDuration] = useState(0);
+  const playerRef = useRef();
 
   const playPause = () => setIsPlaying(!isPlaying);
   const muteAudio = () => setMute(!mute);
   const toggleRepeat = () => setRepeat(!repeat);
   const toggleShuffle = () => setShuffle(!shuffle);
+  const setSeekBar = (current) => {
+    playerRef.current.seekTo(current, 'fraction');
+  };
 
   // Reference data
   const TrackData = {
@@ -76,6 +80,7 @@ function AudioProvider({ children }) {
         TrackData,
         progress,
         duration,
+        setSeekBar,
       }}
     >
       <AudioPlayer
@@ -85,6 +90,7 @@ function AudioProvider({ children }) {
         loop={repeat}
         onProgress={setProgress}
         onDuration={setDuration}
+        ref={playerRef}
         style={{ display: 'none' }}
       />
       {children}

@@ -8,6 +8,7 @@ import {
 import AppLayout from './layout/AppLayout';
 import Home from './pages/Home/Home';
 import Search from './pages/Search/Search';
+import Library from './pages/Library/Library';
 import Login from './pages/Login/Login';
 import NotFound from './pages/NotFound/NotFound';
 
@@ -19,6 +20,7 @@ function App() {
           <Route path="/" element={<AppLayout />}>
             <Route index element={<Home />} />
             <Route path="/search" element={<Search />} />
+            <Route path="/library" element={<Library />} />
           </Route>
           <Route path="/login" element={<Login />} />
           <Route path="/404" element={<NotFound />} />

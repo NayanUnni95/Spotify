@@ -58,3 +58,8 @@
   height: 1.7rem;
   border-radius: 50%;
 }
+@media only screen and (max-width: 425px) {
+  .navButton {
+    display: none;
+  }
+}
