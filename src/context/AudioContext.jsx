@@ -91,6 +91,7 @@ function AudioProvider({ children }) {
         onProgress={setProgress}
         onDuration={setDuration}
         ref={playerRef}
+        onEnded={() => setIsPlaying(false)}
         style={{ display: 'none' }}
       />
       {children}

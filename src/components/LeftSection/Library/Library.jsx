@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { Icon } from '../../../Icons';
 import styles from './Library.module.css';
 import VerticalCard from '../VerticalCard/VerticalCard';
 import VerticalCardSkeleton from '../VerticalCardSkeleton/VerticalCardSkeleton';
 import { useAuth } from '../../../hooks/useAuth';
+import { LibraryDataContext } from '../../../layout/AppLayout';
 import {
   Liked_Songs,
   Albums,
@@ -14,6 +15,7 @@ import { DataCleanUp } from '../../../constants/cleanUpData';
 
 function Library() {
   const [data, setData] = useState(null);
+  const { updateLibraryData } = useContext(LibraryDataContext);
   const { fetchData } = useAuth();
   useEffect(() => {
     Promise.all([
@@ -25,6 +27,7 @@ function Library() {
       .then((res) => {
         // custom data cleanup function for arrange unordered data to ordered data
         setData(DataCleanUp(res));
+        updateLibraryData(DataCleanUp(res));
       })
       .catch((err) => {
         console.log(err);

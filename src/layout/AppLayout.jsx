@@ -10,15 +10,18 @@ import { useAuth } from '../hooks/useAuth';
 import AudioContext from '../context/AudioContext';
 
 const MyContext = React.createContext();
+const LibraryDataContext = React.createContext();
 
 function AppLayout() {
   const { spotifyAuthReturnParams, setToken, getToken } = useAuth();
   const navigate = useNavigate();
   const [showPlayer, setShowPlayer] = useState(false);
   const [showRightPanel, setShowRightPanel] = useState(false);
+  const [libraryData, setLibraryData] = useState(null);
 
   const togglePlayerWindow = () => setShowPlayer(!showPlayer);
   const toggleRightPanel = () => setShowRightPanel(!showRightPanel);
+  const updateLibraryData = (data) => setLibraryData(data);
 
   useEffect(() => {
     if (window.location.hash) {
@@ -32,8 +35,15 @@ function AppLayout() {
   return (
     <div className={styles.container}>
       <div className={styles.innerTopContainer}>
-        <LeftSection />
-        <Outlet />
+        <LibraryDataContext.Provider
+          value={{
+            libraryData,
+            updateLibraryData,
+          }}
+        >
+          <LeftSection />
+          <Outlet />
+        </LibraryDataContext.Provider>
         {showRightPanel ? <RightSection /> : null}
       </div>
 
@@ -58,4 +68,4 @@ function AppLayout() {
 
 export default AppLayout;
 
-export { MyContext };
+export { MyContext, LibraryDataContext };
