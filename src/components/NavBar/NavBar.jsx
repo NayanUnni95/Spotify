@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Icon } from '../../Icons';
 import { CgProfile } from 'react-icons/cg';
 import styles from './NavBar.module.css';
@@ -8,6 +9,8 @@ import { Profile } from '../../constants/constant';
 function NavBar() {
   const { fetchData } = useAuth();
   const [userData, setUserData] = useState(null);
+  const navigate = useNavigate();
+
   useEffect(() => {
     fetchData(Profile)
       .then((res) => {
@@ -21,10 +24,10 @@ function NavBar() {
     <div className={styles.navbarSection}>
       <div className={styles.bgBlur} />
       <div className={styles.navButton}>
-        <button>
+        <button onClick={() => navigate(-1)}>
           <Icon name={'left'} size={20} />
         </button>
-        <button>
+        <button onClick={() => navigate(1)}>
           <Icon name={'right'} size={20} />
         </button>
       </div>

@@ -12,6 +12,7 @@
   overflow-y: scroll;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  margin-bottom: 6rem;
 }
 .cardSection {
   display: flex;

@@ -17,6 +17,7 @@
   grid-template-columns: repeat(5, 1fr);
   grid-gap: 1rem;
   position: relative;
+  margin-bottom: 1rem;
 }
 .categoryCard {
   border-radius: 0.3rem;
@@ -45,5 +46,6 @@
 @media only screen and (max-width: 425px) {
   .innerCategoryContainer {
     grid-template-columns: repeat(2, 1fr);
+    margin-bottom: 8rem;
   }
 }

@@ -11,5 +11,6 @@
   .homeSection {
     margin: 0;
     border-radius: 0;
+    padding-bottom: 5.5rem;
   }
 }

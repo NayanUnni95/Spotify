@@ -34,7 +34,6 @@
   align-items: center;
   justify-content: center;
   border: none !important;
-  cursor: not-allowed;
 }
 .navButton > button:hover {
   background-color: var(--primary-button-hover-bg);

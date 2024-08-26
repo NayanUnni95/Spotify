@@ -12,7 +12,12 @@ function SearchCategoryGrid({ category }) {
           {category
             ? category.map((data, index) => {
                 return (
-                  <div className={styles.categoryCard} key={index}>
+                  <div
+                    className={styles.categoryCard}
+                    key={index}
+                    id={data.id}
+                    href={data.href}
+                  >
                     <div>
                       <img
                         src={data.icons[0].url}
