@@ -11,6 +11,7 @@
   display: flex;
   margin: 5px;
   border-radius: 0.5rem;
+  cursor: pointer;
 }
 .verticalCard:hover {
   background-color: rgba(105, 105, 105, 0.411);

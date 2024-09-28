@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import CustomProgressbar from '../../components/ProgressBar/CustomProgressbar';
 import { MyContext } from '../../layout/AppLayout';
 import { AudioContext } from '../../context/AudioContext';
@@ -24,7 +24,11 @@ function MusicPanel() {
     shuffle,
     mute,
     TrackData,
+    volume,
+    setVolumeValue,
   } = useContext(AudioContext);
+  const [isHover, setIsHover] = useState(false);
+
   return (
     <div className={styles.musicPanelContainer}>
       <div className={styles.fadeLayer}></div>
@@ -113,16 +117,33 @@ function MusicPanel() {
               <div className={styles.volumeBar}>
                 <button onClick={muteAudio} className={styles.volumeBtn}>
                   {mute ? (
-                    <HiOutlineVolumeOff size={25} />
+                    <HiOutlineVolumeOff size={23} />
                   ) : (
-                    <HiOutlineVolumeUp size={25} />
+                    <HiOutlineVolumeUp size={23} />
                   )}
                 </button>
-                <input type="range" className={styles.volumeBar} />
+                <input
+                  type="range"
+                  value={volume * 100}
+                  style={{
+                    background: `linear-gradient(to right, var(--primary-font-color) ${
+                      volume * 100
+                    }%, #4d4d4d ${volume * 100}%`,
+                    transition: 'background 0.5s ease',
+                    ...(isHover && {
+                      background: `linear-gradient(to right, var(--spotify-green-theme) ${
+                        volume * 100
+                      }%, #4d4d4d ${volume * 100}%`,
+                    }),
+                  }}
+                  onChange={(e) => setVolumeValue(e.target.value / 100)}
+                  onMouseEnter={() => setIsHover(true)}
+                  onMouseLeave={() => setIsHover(false)}
+                />
               </div>
               <div className={styles.exitBtn}>
                 <button onClick={togglePlayerWindow}>
-                  <BsArrowsAngleContract size={25} />
+                  <BsArrowsAngleContract size={18} />
                 </button>
               </div>
             </div>

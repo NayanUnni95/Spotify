@@ -20,14 +20,16 @@
   background-color: var(--playlist-card-hover-bg);
 }
 .playlistImg > img {
-  width: 48px;
-  height: 48px;
+  width: 58px;
+  height: 58px;
 }
 .text {
-  width: 10em;
-  overflow: hidden;
+  /* width: 10em; */
+  /* overflow: hidden;
   white-space: nowrap;
-  text-overflow: ellipsis;
+  text-overflow: ellipsis; */
+  font-size: smaller;
+  word-wrap: break-word;
 }
 .playlistImg {
   display: flex;

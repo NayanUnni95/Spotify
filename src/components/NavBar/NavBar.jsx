@@ -1,24 +1,27 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Icon } from '../../Icons';
 import { CgProfile } from 'react-icons/cg';
 import styles from './NavBar.module.css';
 import { useAuth } from '../../hooks/useAuth';
 import { Profile } from '../../constants/constant';
+import { DataContext } from '../../context/DataCacheContext';
 
 function NavBar() {
   const { fetchData } = useAuth();
-  const [userData, setUserData] = useState(null);
   const navigate = useNavigate();
+  const { profileData, setProfileData } = useContext(DataContext);
 
   useEffect(() => {
-    fetchData(Profile)
-      .then((res) => {
-        setUserData(res);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    if (!profileData) {
+      fetchData(Profile)
+        .then((res) => {
+          setProfileData(res);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
   }, []);
   return (
     <div className={styles.navbarSection}>
@@ -32,9 +35,9 @@ function NavBar() {
         </button>
       </div>
       <div className={styles.navProfile}>
-        {userData && userData.images.length != 0 ? (
+        {profileData && profileData.images.length != 0 ? (
           <img
-            src={userData.images[0].url}
+            src={profileData.images[0].url}
             className={styles.profileImg}
             alt="avatar"
           />

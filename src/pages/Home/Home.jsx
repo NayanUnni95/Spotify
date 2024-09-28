@@ -1,10 +1,45 @@
-import React from 'react';
+import React, { useEffect, useContext } from 'react';
 import styles from './Home.module.css';
 import NavBar from '../../components/NavBar/NavBar';
 import TopPlaylist from '../../components/TopPlaylist/TopPlaylist';
 import HorizontalCard from '../../components/HorizontalScrollCard/HorizontalCard';
+import { useAuth } from '../../hooks/useAuth';
+import {
+  Several_BrowserCategory,
+  Several_Albums,
+  New_Release,
+  Top_Items,
+  Several_Artists,
+  Featured_Playlist,
+  Several_Tracks,
+  Artists_TopTracks,
+} from '../../constants/constant';
+import { DataContext } from '../../context/DataCacheContext';
 
 function HomeSection() {
+  const { fetchData } = useAuth();
+  const { homeData, setHomeData } = useContext(DataContext);
+  useEffect(() => {
+    if (!homeData) {
+      Promise.all([
+        fetchData(`${Several_BrowserCategory}`),
+        // fetchData(`${Several_Albums}{id}`),
+        // // fetchData(`${Top_Items}`),
+        // fetchData(`${Several_Artists}{id}`),
+        fetchData(`${Featured_Playlist}`),
+        // fetchData(`${Several_Tracks}{id}`),
+        // // fetchData(`${Artists_TopTracks}`),
+        fetchData(`${New_Release}`),
+      ])
+        .then((res) => {
+          setHomeData(res);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  }, []);
+
   // Reference data
   const data = {
     title: 'Trending Now Malayalam',

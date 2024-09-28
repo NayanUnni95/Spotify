@@ -1,30 +1,32 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useContext } from 'react';
 import styles from './Search.module.css';
 import NavBar from '../../components/NavBar/NavBar';
 import SearchBar from '../../components/SearchBar/SearchBar';
 import SearchCategoryGrid from '../../components/SearchCategoryGrid/SearchCategoryGrid';
 import { useAuth } from '../../hooks/useAuth';
 import { Several_BrowserCategory } from '../../constants/constant';
+import { DataContext } from '../../context/DataCacheContext';
 
 function Search() {
   const { fetchData } = useAuth();
-  const [category, setCategory] = useState();
+  const { searchCategory, setSearchCategory } = useContext(DataContext);
+
   useEffect(() => {
-    if (!category) {
+    if (!searchCategory) {
       fetchData(`${Several_BrowserCategory}?limit=50`)
         .then((res) => {
-          setCategory(res.categories.items);
+          setSearchCategory(res.categories.items);
         })
         .catch((err) => {
           console.log(err);
         });
     }
-  }, [category]);
+  }, [searchCategory]);
   return (
     <div className={styles.SearchSection}>
       <NavBar />
       <SearchBar />
-      <SearchCategoryGrid category={category} />
+      <SearchCategoryGrid category={searchCategory} />
     </div>
   );
 }

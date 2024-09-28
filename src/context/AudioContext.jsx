@@ -10,6 +10,7 @@ function AudioProvider({ children }) {
   const [mute, setMute] = useState(false);
   const [progress, setProgress] = useState({});
   const [duration, setDuration] = useState(0);
+  const [volume, setVolume] = useState(0.5);
   const playerRef = useRef();
 
   const playPause = () => setIsPlaying(!isPlaying);
@@ -18,6 +19,10 @@ function AudioProvider({ children }) {
   const toggleShuffle = () => setShuffle(!shuffle);
   const setSeekBar = (current) => {
     playerRef.current.seekTo(current, 'fraction');
+  };
+
+  const setVolumeValue = (value) => {
+    setVolume(value);
   };
 
   // Reference data
@@ -77,6 +82,8 @@ function AudioProvider({ children }) {
         playPause,
         toggleRepeat,
         toggleShuffle,
+        volume,
+        setVolumeValue,
         TrackData,
         progress,
         duration,
@@ -84,7 +91,7 @@ function AudioProvider({ children }) {
       }}
     >
       <AudioPlayer
-        url={TrackData.downloadUrl[2].url}
+        url={TrackData.downloadUrl[4].url}
         playing={isPlaying}
         muted={mute}
         loop={repeat}
@@ -92,6 +99,7 @@ function AudioProvider({ children }) {
         onDuration={setDuration}
         ref={playerRef}
         onEnded={() => setIsPlaying(false)}
+        volume={volume}
         style={{ display: 'none' }}
       />
       {children}

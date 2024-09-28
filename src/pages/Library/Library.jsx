@@ -2,14 +2,40 @@ import React, { useState, useEffect, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styles from './Library.module.css';
 import NavBar from '../../components/NavBar/NavBar';
-import { LibraryDataContext } from '../../layout/AppLayout';
+import { DataContext } from '../../context/DataCacheContext';
+import { useAuth } from '../../hooks/useAuth';
+import {
+  Liked_Songs,
+  Albums,
+  Playlist,
+  Artists,
+} from '../../constants/constant';
+import { DataCleanUp } from '../../constants/cleanUpData';
 
 function Library() {
   const [innerWidth, setInnerWidth] = useState(0);
-  const { libraryData } = useContext(LibraryDataContext);
+  const { fetchData } = useAuth();
+  const { libraryData, setLibraryData } = useContext(DataContext);
   const navigate = useNavigate();
 
   window.addEventListener('resize', () => setInnerWidth(window.innerWidth));
+
+  useEffect(() => {
+    if (!libraryData) {
+      Promise.all([
+        fetchData(Liked_Songs),
+        fetchData(Albums),
+        fetchData(Playlist),
+        fetchData(Artists),
+      ])
+        .then((res) => {
+          setLibraryData(DataCleanUp(res));
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  }, []);
 
   useEffect(() => {
     if (innerWidth > 425) navigate('/');
@@ -37,7 +63,11 @@ function Library() {
                       ) : (
                         <img
                           src={data.image[0].url}
-                          style={{ borderRadius: '4rem' }}
+                          style={{
+                            borderRadius: '4rem',
+                            minHeight: '50px',
+                            maxHeight: '110px',
+                          }}
                         />
                       )}
                     </div>

@@ -5,6 +5,7 @@ import styles from './CustomProgressbar.module.css';
 function CustomProgressbar() {
   const [loadedPer, setLoadedPer] = useState(0);
   const [playedPer, setPlayedPer] = useState(0);
+  const [isHover, setIsHover] = useState(false);
   const { progress, duration, setSeekBar } = useContext(AudioContext);
 
   const timeFormatter = (second) => {
@@ -27,7 +28,9 @@ function CustomProgressbar() {
   return (
     <div className={styles.progressContainer}>
       <div className={styles.progressLabel}>
-        <span>{timeFormatter(progress.playedSeconds)}</span>
+        <span className={styles.innerTimeLabel}>
+          {timeFormatter(progress.playedSeconds)}
+        </span>
       </div>
       <div className={styles.innerSection}>
         <input
@@ -53,12 +56,18 @@ function CustomProgressbar() {
           className={styles.bar}
           style={{
             background: `linear-gradient(to right, var(--primary-font-color) ${playedPer}%, #ffffff00 ${playedPer}%`,
+            transition: 'background 0.5s ease',
+            ...(isHover && {
+              background: `linear-gradient(to right, var(--spotify-green-theme) ${playedPer}%, #ffffff00 ${playedPer}%`,
+            }),
           }}
+          onMouseEnter={() => setIsHover(true)}
+          onMouseLeave={() => setIsHover(false)}
           readOnly
         />
       </div>
       <div className={styles.progressLabel}>
-        <span>{timeFormatter(duration)}</span>
+        <span className={styles.innerTimeLabel}>{timeFormatter(duration)}</span>
       </div>
     </div>
   );

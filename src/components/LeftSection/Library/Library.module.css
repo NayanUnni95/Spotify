@@ -14,6 +14,18 @@ a {
   padding: 1rem;
   margin-top: 0.5rem;
 }
+.libraryVerticalScroll::-webkit-scrollbar {
+  width: 1rem;
+}
+.libraryVerticalScroll::-webkit-scrollbar-track {
+  border-radius: 0.5rem;
+  background: var(--primary-background);
+}
+.libraryVerticalScroll::-webkit-scrollbar-thumb {
+  background-color: rgba(121, 121, 121, 0.466);
+  border-radius: 1rem;
+  border: 3px solid var(--primary-background);
+}
 .libraryLabel {
   display: flex;
   justify-content: start;
@@ -82,16 +94,4 @@ a {
   .verticalCard {
     padding: 0;
   }
-}
-.libraryVerticalScroll::-webkit-scrollbar {
-  width: 1rem;
-}
-.libraryVerticalScroll::-webkit-scrollbar-track {
-  border-radius: 0.5rem;
-  background: var(--primary-background);
-}
-.libraryVerticalScroll::-webkit-scrollbar-thumb {
-  background-color: rgba(121, 121, 121, 0.466);
-  border-radius: 1rem;
-  border: 3px solid var(--primary-background);
 }

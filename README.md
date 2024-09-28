@@ -1,9 +1,6 @@
-# Spotify Clone Web App
+# Spotify Client Web App
 
 This repository contains a Spotify Clone Web App built using ReactJS and the Spotify Web API. The app is designed for fetches data through a personal Spotify account. This project focuses on the frontend functionality, including data fetching, authentication, but does not include the music playback feature.
-
-<!-- > [!NOTE]
-> Currently, this app is not using any APIs as it is still in the design phase... -->
 
 ## Features
 

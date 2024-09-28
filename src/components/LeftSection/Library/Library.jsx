@@ -1,10 +1,9 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useEffect, useContext } from 'react';
 import { Icon } from '../../../Icons';
 import styles from './Library.module.css';
 import VerticalCard from '../VerticalCard/VerticalCard';
 import VerticalCardSkeleton from '../VerticalCardSkeleton/VerticalCardSkeleton';
 import { useAuth } from '../../../hooks/useAuth';
-import { LibraryDataContext } from '../../../layout/AppLayout';
 import {
   Liked_Songs,
   Albums,
@@ -12,26 +11,28 @@ import {
   Artists,
 } from '../../../constants/constant';
 import { DataCleanUp } from '../../../constants/cleanUpData';
+import { DataContext } from '../../../context/DataCacheContext';
 
 function Library() {
-  const [data, setData] = useState(null);
-  const { updateLibraryData } = useContext(LibraryDataContext);
+  const { libraryData, setLibraryData } = useContext(DataContext);
   const { fetchData } = useAuth();
+
   useEffect(() => {
-    Promise.all([
-      fetchData(Liked_Songs),
-      fetchData(Albums),
-      fetchData(Playlist),
-      fetchData(Artists),
-    ])
-      .then((res) => {
-        // custom data cleanup function for arrange unordered data to ordered data
-        setData(DataCleanUp(res));
-        updateLibraryData(DataCleanUp(res));
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    if (!libraryData) {
+      Promise.all([
+        fetchData(Liked_Songs),
+        fetchData(Albums),
+        fetchData(Playlist),
+        fetchData(Artists),
+      ])
+        .then((res) => {
+          // DataCleanUp is a custom data cleanup function for arrange unordered data to ordered data
+          setLibraryData(DataCleanUp(res));
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
   }, []);
   return (
     <div className={styles.librarySection}>
@@ -43,7 +44,11 @@ function Library() {
           <span>library</span>
         </div>
       </div>
-      {data ? <VerticalCard collectionData={data} /> : <VerticalCardSkeleton />}
+      {libraryData ? (
+        <VerticalCard collectionData={libraryData} />
+      ) : (
+        <VerticalCardSkeleton />
+      )}
     </div>
   );
 }

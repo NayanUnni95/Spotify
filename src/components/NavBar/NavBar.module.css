@@ -61,4 +61,7 @@
   .navButton {
     display: none;
   }
+  .bgBlur {
+    background-color: var(--primary-section-bg);
+  }
 }

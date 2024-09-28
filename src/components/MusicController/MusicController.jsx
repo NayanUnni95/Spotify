@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import styles from './MusicController.module.css';
 import { MyContext } from '../../layout/AppLayout';
 import { AudioContext } from '../../context/AudioContext';
@@ -25,7 +25,10 @@ function MusicController() {
     repeat,
     shuffle,
     mute,
+    volume,
+    setVolumeValue,
   } = useContext(AudioContext);
+  const [isHover, setIsHover] = useState(false);
 
   return (
     <div className={styles.musicContainer}>
@@ -100,11 +103,28 @@ function MusicController() {
             </button>
           </div>
           <div className={styles.volumeBar}>
-            <input type="range" />
+            <input
+              type="range"
+              style={{
+                background: `linear-gradient(to right, var(--primary-font-color) ${
+                  volume * 100
+                }%, #4d4d4d ${volume * 100}%`,
+                transition: 'background 0.5s ease',
+                ...(isHover && {
+                  background: `linear-gradient(to right, var(--spotify-green-theme) ${
+                    volume * 100
+                  }%, #4d4d4d ${volume * 100}%`,
+                }),
+              }}
+              value={volume * 100}
+              onChange={(e) => setVolumeValue(e.target.value / 100)}
+              onMouseEnter={() => setIsHover(true)}
+              onMouseLeave={() => setIsHover(false)}
+            />
           </div>
           <div className={styles.expandBtn}>
             <button onClick={togglePlayerWindow}>
-              <BsArrowsAngleExpand size={18} />
+              <BsArrowsAngleExpand size={15} />
             </button>
           </div>
         </div>

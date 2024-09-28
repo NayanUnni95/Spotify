@@ -13,19 +13,24 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   margin-bottom: 6rem;
+  padding: 0.5rem;
+}
+.innerSection::-webkit-scrollbar {
+  display: none;
 }
 .cardSection {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 0.5rem;
 }
 .cardImgContainer {
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 120px;
-  height: 120px;
+  width: 100%;
+  height: 110px;
 }
 .cardImgContainer img {
   width: 100%;
@@ -34,6 +39,7 @@
 .cardDetailsContainer {
   text-transform: capitalize;
   color: var(--primary-font-color);
+  display: none;
 }
 .cardDetailsContainer > div {
   margin: 0.5rem 1rem 0.5rem 1rem;
@@ -57,7 +63,6 @@
 }
 @media only screen and (max-width: 375px) {
   .cardImgContainer {
-    width: 100px;
     height: 100px;
   }
 }

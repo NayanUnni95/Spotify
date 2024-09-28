@@ -19,11 +19,7 @@ function SearchCategoryGrid({ category }) {
                     href={data.href}
                   >
                     <div>
-                      <img
-                        src={data.icons[0].url}
-                        alt=""
-                        className={styles.cardImg}
-                      />
+                      <img src={data.icons[0].url} className={styles.cardImg} />
                     </div>
                     <div className={styles.cardTitleName}>
                       <span>{data.name}</span>

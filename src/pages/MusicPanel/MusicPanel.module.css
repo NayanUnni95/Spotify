@@ -4,7 +4,7 @@ button {
 .musicPanelContainer {
   width: 100dvw;
   height: 100dvh;
-  background-color: #1db954;
+  background-color: var(--spotify-green-theme);
   position: fixed;
   z-index: 1;
   display: flex;
@@ -38,6 +38,9 @@ button {
   align-items: end;
   justify-content: start;
 }
+/* .controlSection {
+  display: none;
+} */
 .backBtnSection {
   display: none;
   margin: 0 2rem 0 2rem;
@@ -100,6 +103,7 @@ button {
 .btnSection button {
   background: none;
   border: none;
+  margin-left: 1rem;
   padding: 0.5rem;
   border-radius: 2rem;
   display: flex;
@@ -152,16 +156,17 @@ button {
   appearance: none;
   -webkit-appearance: none;
   width: 100%;
-  background-color: rgb(185, 185, 185);
   border-radius: 0.5rem;
-  height: 5px;
+  height: 4px;
 }
 .volumeBar input::-webkit-slider-thumb {
   -webkit-appearance: none;
-  width: 15px;
-  height: 15px;
-  background-color: rgb(185, 185, 185);
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
+}
+.volumeBar input:hover::-webkit-slider-thumb {
+  background-color: var(--primary-font-color);
 }
 @media only screen and (max-width: 768px) {
   .btnSection {

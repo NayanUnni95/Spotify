@@ -4,6 +4,7 @@
   --primary-font-color: #272727;
   --playlist-card-bg: rgba(167, 167, 167, 0.68);
   --des-font-color: rgba(0, 0, 0, 0.53);
+  --spotify-green-theme: #1db954;
 }
 * {
   margin: 0;
@@ -19,7 +20,7 @@ body {
 @media (prefers-color-scheme: dark) {
   :root {
     --primary-background: #000000;
-    --primary-section-bg: #1a1a1a;
+    --primary-section-bg: #090909;
     --primary-font-color: #e9e9e9;
     --playlist-card-bg: rgba(49, 49, 49, 0.68);
     --des-font-color: rgba(255, 255, 255, 0.53);

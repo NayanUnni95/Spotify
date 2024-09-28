@@ -8,16 +8,15 @@ import MobileBottomNavBar from '../components/MobileBottomNavBar/MobileBottomNav
 import MusicPanel from '../pages/MusicPanel/MusicPanel';
 import { useAuth } from '../hooks/useAuth';
 import AudioContext from '../context/AudioContext';
+import DataCacheContext from '../context/DataCacheContext';
 
 const MyContext = React.createContext();
-const LibraryDataContext = React.createContext();
 
 function AppLayout() {
   const { spotifyAuthReturnParams, setToken, getToken } = useAuth();
   const navigate = useNavigate();
   const [showPlayer, setShowPlayer] = useState(false);
   const [showRightPanel, setShowRightPanel] = useState(false);
-  const [libraryData, setLibraryData] = useState(null);
 
   const togglePlayerWindow = () => setShowPlayer(!showPlayer);
   const toggleRightPanel = () => setShowRightPanel(!showRightPanel);
@@ -34,38 +33,33 @@ function AppLayout() {
   }, []);
   return (
     <div className={styles.container}>
-      <div className={styles.innerTopContainer}>
-        <LibraryDataContext.Provider
-          value={{
-            libraryData,
-            updateLibraryData,
-          }}
-        >
+      <DataCacheContext>
+        <div className={styles.innerTopContainer}>
           <LeftSection />
           <Outlet />
-        </LibraryDataContext.Provider>
-        {showRightPanel ? <RightSection /> : null}
-      </div>
+          {showRightPanel ? <RightSection /> : null}
+        </div>
 
-      <MyContext.Provider
-        value={{
-          showPlayer,
-          setShowPlayer,
-          showRightPanel,
-          setShowRightPanel,
-          togglePlayerWindow,
-          toggleRightPanel,
-        }}
-      >
-        <AudioContext>
-          {showPlayer ? <MusicPanel /> : <BottomSection />}
-        </AudioContext>
-      </MyContext.Provider>
-      <MobileBottomNavBar />
+        <MyContext.Provider
+          value={{
+            showPlayer,
+            setShowPlayer,
+            showRightPanel,
+            setShowRightPanel,
+            togglePlayerWindow,
+            toggleRightPanel,
+          }}
+        >
+          <AudioContext>
+            {showPlayer ? <MusicPanel /> : <BottomSection />}
+          </AudioContext>
+        </MyContext.Provider>
+        <MobileBottomNavBar />
+      </DataCacheContext>
     </div>
   );
 }
 
 export default AppLayout;
 
-export { MyContext, LibraryDataContext };
+export { MyContext };
