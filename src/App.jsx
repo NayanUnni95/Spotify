@@ -11,6 +11,8 @@ import Search from './pages/Search/Search';
 import Library from './pages/Library/Library';
 import Login from './pages/Login/Login';
 import NotFound from './pages/NotFound/NotFound';
+import Collection from './pages/Collection/Collection';
+import Playlist from './pages/Playlist/Playlist';
 
 function App() {
   return (
@@ -21,6 +23,12 @@ function App() {
             <Route index element={<Home />} />
             <Route path="/search" element={<Search />} />
             <Route path="/library" element={<Library />} />
+            <Route path="/collection/tracks" element={<Collection />} />
+            <Route path="/playlist/:playlistId" element={<Playlist />} />
+            <Route path="/artist/:artistId" element={'Artist Page'} />
+            <Route path="/album/:albumId" element={'Album Page'} />
+            <Route path="/track/:trackId" element={'Track Page'} />
+            <Route path="/user/:userId" element={'User Page'} />
           </Route>
           <Route path="/login" element={<Login />} />
           <Route path="/404" element={<NotFound />} />

@@ -7,7 +7,7 @@ import { HiOutlineQueueList } from 'react-icons/hi2';
 import { CgMusicSpeaker } from 'react-icons/cg';
 import { HiOutlineVolumeUp, HiOutlineVolumeOff } from 'react-icons/hi';
 import { BsArrowsAngleExpand } from 'react-icons/bs';
-import { IoPlaySharp, IoPause } from 'react-icons/io5';
+import { IoMdPlay, IoMdPause } from 'react-icons/io';
 import { TbRepeat } from 'react-icons/tb';
 import { RxShuffle } from 'react-icons/rx';
 import { MdSkipPrevious, MdSkipNext } from 'react-icons/md';
@@ -51,7 +51,7 @@ function MusicController() {
             </div>
             <div className={styles.ctrlBtn}>
               <button onClick={playPause}>
-                {isPlaying ? <IoPause size={25} /> : <IoPlaySharp size={25} />}
+                {isPlaying ? <IoMdPause size={20} /> : <IoMdPlay size={20} />}
               </button>
             </div>
             <div className={styles.nextBtn}>

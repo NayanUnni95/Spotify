@@ -25,9 +25,10 @@ const LikedSongs = (userData) => {
         },
       ],
       songs: userData.total,
-      id: null,
+      id: 'tracks',
       href: userData.href,
       items: userData.items,
+      routePath: 'collection',
     };
   }
 };
@@ -42,6 +43,7 @@ const album = (albumData) => {
         id: obj.album.id,
         href: obj.album.href,
         items: null,
+        routePath: obj.album.type,
       };
     });
   }
@@ -57,6 +59,7 @@ const playlist = (playlistData) => {
         id: obj.id,
         href: obj.href,
         items: null,
+        routePath: obj.type,
       };
     });
   }
@@ -72,6 +75,7 @@ const artists = (artistsData) => {
         id: obj.id,
         href: obj.href,
         items: null,
+        routePath: obj.type,
       };
     });
   }

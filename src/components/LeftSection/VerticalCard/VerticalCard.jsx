@@ -1,7 +1,10 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import styles from './VerticalCard.module.css';
 
 function VerticalCard({ collectionData }) {
+  const navigate = useNavigate();
+
   return (
     <div className={styles.libraryVerticalScroll}>
       {collectionData.map((data, index) => {
@@ -10,8 +13,7 @@ function VerticalCard({ collectionData }) {
             <div
               className={styles.verticalCard}
               key={index}
-              id={data.id}
-              href={data.href}
+              onClick={() => navigate(`/${data.routePath}/${data.id}`)}
             >
               <div className={styles.verticalCardImg}>
                 {data.type == 'artist' ? (
@@ -37,7 +39,7 @@ function VerticalCard({ collectionData }) {
                     <span>{data.type}</span>
                   </div>
                   <div>
-                    <span>{'•' + data.songs}</span>
+                    <span>{data.songs != null ? '•' + data.songs : ''}</span>
                   </div>
                 </div>
               </div>
