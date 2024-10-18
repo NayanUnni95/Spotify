@@ -1,0 +1,28 @@
+Music						/genre/0JQ5DAqbMKFSi39LMRT0Cy
+Made for you				/genre/0JQ5DAt0tbjZptfcdMSKl3
+Explore all category		/genre/0JQ5DArNBzkmxXHCqFLx3c
+Daily mix					/genre/section0JQ5DACFo5h0jxzOyHOsIo
+Your artist mixes			/genre/section0JQ5DACFo5h0jxzOyHOsIa
+Featured playlist			/genre/section0JQ5DAzQHECxDlYNI6xD1g
+Uniquely yours				/genre/section0JQ5DACFo5h0jxzOyHOsIe
+Handpicked new release		/genre/section0JQ5IMCbQBLAlPhkJ41ypw
+New release					/genre/0JQ5DAqbMKFz6FAsUtgAab
+Your genre mixes			/genre/section0JQ5DACFo5h0jxzOyHOsI9
+Your decade mixes			/genre/section0JQ5DACFo5h0jxzOyHOsIb
+Your mood mixes				/genre/section0JQ5DACFo5h0jxzOyHOsIc
+Your niche mixes			/genre/section0JQ5DATaxswzruE2nWp3Lr
+The best new release		/genre/section0JQ5IMCbQBLiGLtWsAvnNG
+Recently played				/genre/recently-played
+Popular equal playlist		/genre/section0JQ5IMCbQBLmdV4K4hLrHt
+Playlist from our editors	/genre/0JQ5DAqbMKFSi39LMRT0Cy
+Jump back in				/section/0JQ5DAIiKWzVFULQfUm85X
+Popular album				/section/0JQ5DAnM3wGh0gz1MXnu3B
+Today's biggest hits		/section/0JQ5DAnM3wGh0gz1MXnu3M
+More of what you like		/section/0JQ5DAnM3wGh0gz1MXnu3J
+India's best				/section/0JQ5DAuChZYPe9iDhh2mJz
+Charts						/section/0JQ5DAnM3wGh0gz1MXnu5g
+Popular radio				/section/0JQ5DAnM3wGh0gz1MXnu4h
+Popular artist				/section/0JQ5DAnM3wGh0gz1MXnu3C
+For that 'pasandida insaan'	/section/0JQ5IMCbQBLkvpuwqL2UWr
+Spotify playlist			/section/0JQ5DAuChZYPe9iDhh2mJz
+Featured charts				/section/0JQ5DAzQHECxDlYNI6xD1g

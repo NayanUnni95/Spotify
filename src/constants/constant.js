@@ -3,7 +3,8 @@ const Base_URL = 'https://api.spotify.com/v1';
 const Liked_Songs = '/me/tracks?limit=50';
 const Albums = '/me/albums';
 const Playlist = '/me/playlists';
-const Artists = '/me/following?type=artist';
+const PlaylistWithId = '/playlists';
+const Artists = '/me/following?type=artist&limit=50';
 const Several_Category = 'browse/categories';
 const Several_Albums = '/albums/{id}';
 const New_Release = '/browse/new-releases';
@@ -16,6 +17,13 @@ const Several_Artists = '/artists/{id}';
 const Several_BrowserCategory = '/browse/categories';
 const Search_Item = '/search';
 const Profile = '/me';
+const Recently_Played = '/me/player/recently-played';
+const Recommendation =
+  '/recommendations?seed_artists={artist_id}&seed_genres={genre}&seed_tracks={track_id}';
+const Today_Hits = '/search?q=playlist:"Today\'s Biggest Hits"&type=playlist';
+const Charts = '/search?q=charts&type=playlist';
+const County_Best = `/browse/categories?country=`;
+const User = '/users';
 
 export {
   Token_URL,
@@ -23,6 +31,7 @@ export {
   Liked_Songs,
   Albums,
   Playlist,
+  PlaylistWithId,
   Artists,
   Several_Category,
   Several_Albums,
@@ -36,4 +45,10 @@ export {
   Several_BrowserCategory,
   Search_Item,
   Profile,
+  Recently_Played,
+  Recommendation,
+  Today_Hits,
+  Charts,
+  County_Best,
+  User,
 };

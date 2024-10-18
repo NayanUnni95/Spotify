@@ -8,7 +8,7 @@ import { IoPlay } from 'react-icons/io5';
 import NavBar from '../../components/NavBar/NavBar';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
-import { Liked_Songs } from '../../constants/constant';
+import { Liked_Songs, User } from '../../constants/constant';
 import equ from '../../assets/images/equaliser-animated-green.gif';
 import { DataContext } from '../../context/DataCacheContext';
 import { ThreeDots } from 'react-loader-spinner';
@@ -112,6 +112,10 @@ function Collection() {
               </div>
               <div className={styles.desc}>
                 <h5 className={styles.name}>
+                  <img
+                    src={profileData && profileData.images[0].url}
+                    alt={profileData && profileData.display_name}
+                  />
                   <Link to={profileData ? `/user/${profileData.id}` : ``}>
                     {profileData ? profileData.display_name : 'user'}
                   </Link>
