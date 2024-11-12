@@ -47,7 +47,7 @@ export const useAuth = () => {
   };
   const setToken = (access_token, expires_in) => {
     const cookies = new Cookies();
-    const expireTime = new Date(expires_in + 3600 * 1000);
+    const expireTime = new Date(expires_in + 3300 * 1000);
     cookies.set('access_token', access_token, {
       path: '/',
       expires: expireTime,
@@ -66,10 +66,50 @@ export const useAuth = () => {
     }
     return access_token;
   };
+  const removeToken = () => {
+    const cookies = new Cookies();
+    cookies.remove('access_token');
+    cookies.remove('expires_in');
+  };
+  const DateConverter = (zuluTime) => {
+    const date = new Date(zuluTime);
+    const months = [
+      'Jan',
+      'Feb',
+      'Mar',
+      'Apr',
+      'May',
+      'Jun',
+      'Jul',
+      'Aug',
+      'Sep',
+      'Oct',
+      'Nov',
+      'Dec',
+    ];
+    const day = String(date.getUTCDate()).padStart(2, '0');
+    const month = months[date.getUTCMonth()];
+    const year = date.getUTCFullYear();
+    return `${day} ${month} ${year}`;
+  };
+  const msToTime = (milliseconds) => {
+    const totalSeconds = Math.floor(milliseconds / 1000);
+
+    const minutes = Math.floor((totalSeconds % 3600) / 60);
+    const seconds = totalSeconds % 60;
+
+    const formattedMinutes = String(minutes).padStart(2, '0');
+    const formattedSeconds = String(seconds).padStart(2, '0');
+
+    return `${formattedMinutes}:${formattedSeconds}`;
+  };
   return {
     fetchData,
     spotifyAuthReturnParams,
     setToken,
     getToken,
+    removeToken,
+    DateConverter,
+    msToTime,
   };
 };

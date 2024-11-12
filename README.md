@@ -74,7 +74,7 @@ npx prettier --write <filename>
 
 1. Authentication
 
-- On the home page, click the "Login with Spotify" button.
+- On the login page, click the "Login" button.
 - You will be redirected to Spotify's login page. Log in with your Spotify credentials and authorize the app.
 
 2. Browse Playlists
@@ -82,9 +82,9 @@ npx prettier --write <filename>
 - After logging in, you will be redirected back to the app.
 - You can now view your playlists, track details, and user profile information.
 
-3. User Differentiation
+<!-- 3. User Differentiation
 
-- The app will display different features based on whether you are a normal or premium Spotify user.
+- The app will display different features based on whether you are a normal or premium Spotify user. -->
 
 ### Acknowledgements
 

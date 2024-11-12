@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { Icon } from '../../Icons';
+import { Icon } from '../../assets/icons/Icons';
 import styles from './MobileBottomNavBar.module.css';
 
 function MobileBottomNavBar() {

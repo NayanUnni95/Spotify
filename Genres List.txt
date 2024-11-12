@@ -26,3 +26,97 @@ Popular artist				/section/0JQ5DAnM3wGh0gz1MXnu3C
 For that 'pasandida insaan'	/section/0JQ5IMCbQBLkvpuwqL2UWr
 Spotify playlist			/section/0JQ5DAuChZYPe9iDhh2mJz
 Featured charts				/section/0JQ5DAzQHECxDlYNI6xD1g
+
+uniquely yours
+    daylist                 /playlist/37i9dQZF1EP6YuccBxUcC1
+    on repeat               /playlist/37i9dQZF1Epj7DoGCGhyb5
+    repeat rewind           /playlist/37i9dQZF1EpKMQLKWlQP9x
+
+discover new release
+    release radar           /playlist/37i9dQZEVXbvYuD2TuNzDH
+    discover weekly         /playlist/37i9dQZEVXcHp23D0PB3u4
+
+charts
+    featured charts
+        top songs global        /playlist/37i9dQZEVXbNG2KDcFcKOF
+        top songs India         /playlist/37i9dQZEVXbMWDif5SCBJq
+        top 50 global           /playlist/37i9dQZEVXbMDoHDwVN2tF
+        top 50 India            /playlist/37i9dQZEVXbLZ52XmnySJg
+        viral 50 global         /playlist/37i9dQZEVXbLiRSasKsNU9
+        viral 50 India          /playlist/37i9dQZEVXbK4NvPi6Sxit
+
+    weekly song charts          
+        top songs global            /playlist/37i9dQZEVXbNG2KDcFcKOF
+        top songs argentina         /playlist/37i9dQZEVXbKPTKrnFPD0G
+        top songs australia         37i9dQZEVXbK4fwx2r07XW
+        top songs austria           37i9dQZEVXbM1EaZ0igDlz
+        top songs belarus           37i9dQZEVXbLRLeF2cVSaP
+        top songs belgium           37i9dQZEVXbND4ZYa46PaA
+        top songs bolivia           37i9dQZEVXbJgjCMawPquO
+        top songs brazil            37i9dQZEVXbKzoK95AbRy9
+        top songs bulgaria          37i9dQZEVXbJQbYjwxrhPm
+        top songs canada            37i9dQZEVXbMda2apknTqH
+        top songs chile             37i9dQZEVXbLJ0paT1JkgZ
+        top songs colombia          37i9dQZEVXbL1Fl8vdBUba
+        top songs costa rica        37i9dQZEVXbNDIQm4XMct1
+        top songs cyprus            37i9dQZEVXbKVvIaSFCnNP
+        top songs czech republic    37i9dQZEVXbLKI6MPixefZ
+        top songs denmark           37i9dQZEVXbMw2iUtFR5Eq
+        top songs dominican republic 37i9dQZEVXbMPoK06pe7d6
+        top songs ecuador           37i9dQZEVXbJPVQvqZqpcM
+                    egypt           37i9dQZEVXbMy2EcFg5F9m
+                    el salvador     37i9dQZEVXbKtVexUCYsK7
+                    estonia         37i9dQZEVXbLnGyU4lLfIR
+                    finland         37i9dQZEVXbJQ9kF73GOT2
+                    france          37i9dQZEVXbKQ1ogMOyW9N
+                    germany         37i9dQZEVXbK8BKKMArIyl
+                    greece          37i9dQZEVXbLfxwYMQnhFy
+                    guatemala       37i9dQZEVXbJHSzlHx2ZJU
+                    honduras        37i9dQZEVXbMuaLyPOPOg7
+                    hong kong       37i9dQZEVXbMdvweCgpBAe
+                    hungry          37i9dQZEVXbMYsavqzfk6k
+                    lceland         37i9dQZEVXbNFK4e1Q7rTL
+                    India           37i9dQZEVXbMWDif5SCBJq
+                    indonesia       37i9dQZEVXbIZK8aUquyx8
+                    ireland         37i9dQZEVXbJIvhIOxXxdp
+                    israel          37i9dQZEVXbJ5J1TrbkAF9
+                    italy           37i9dQZEVXbJUPkgaWZcWG
+                    japan           37i9dQZEVXbKqiTGXuCOsB
+                    kazakhstan      37i9dQZEVXbLeBcWrdps2V
+                    latvia          37i9dQZEVXbJm5XJ9pVWM8
+                    lithuania       37i9dQZEVXbMYxg0QVEswv
+                    luxembourg      37i9dQZEVXbJ9I5rNwuWjd
+                    malaysia        37i9dQZEVXbKcS4rq3mEhp
+                    mexico          37i9dQZEVXbKUoIkUXteF6
+                    morocco         37i9dQZEVXbNM8vS9cIqAG
+                    netherland      37i9dQZEVXbK4BFAukDzj3
+                    zealand         37i9dQZEVXbIWlLQoMVEFp
+                    nicaragua       37i9dQZEVXbKhkXdhx5DMx
+                    nigeria         37i9dQZEVXbLw80jjcctV1
+                    norway          37i9dQZEVXbLWYFZ5CkSvr
+                    pakistan        37i9dQZEVXbNy9tB5elXf1
+                    panama          37i9dQZEVXbNSiWnkYnziz
+                    paraguay        37i9dQZEVXbOa9bIw7kKRV
+                    peru            37i9dQZEVXbMGcjiWgg253
+                    philippines     37i9dQZEVXbJVKdmjH0pON
+                    poland          37i9dQZEVXbMZ5PAcNTDXd
+                    portugal        37i9dQZEVXbJBafyanUiqT
+                    romania         37i9dQZEVXbMeCoUmQDLUW
+                    saudi arabia    37i9dQZEVXbO839WGRmpu1
+                    singapore       37i9dQZEVXbN66FupT0MuX
+                    slovakia        37i9dQZEVXbMwW10JmAnzE
+                    south africa    37i9dQZEVXbJV3H3OfCN1z
+                    south korea     37i9dQZEVXbJZGli0rRP3r
+                    spain           37i9dQZEVXbJwoKy8qKpHG
+                    sweden          37i9dQZEVXbKVvfnL1Us06
+                    switzerland     37i9dQZEVXbKx6qX9uN66j
+                    taiwan          37i9dQZEVXbMVY2FDHm6NN
+                    thailand        37i9dQZEVXbJ7qiJCES5cj
+                    turkey          37i9dQZEVXbJARRcHjHcAr
+                    unit arab emirates 37i9dQZEVXbIZQf3WEYSut
+                    usa             37i9dQZEVXbLp5XoPON0wI
+                    ukraine         37i9dQZEVXbNcoJZ65xktI
+                    uk              37i9dQZEVXbMwmF30ppw50
+                    uruguay         37i9dQZEVXbLJVn3eSzDgr
+                    venezuela       37i9dQZEVXbNvXzC8A6ysJ
+                    vietnam         37i9dQZEVXbKZyn1mKjmIl

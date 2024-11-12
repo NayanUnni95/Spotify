@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react';
 import CustomProgressbar from '../../components/ProgressBar/CustomProgressbar';
 import { MyContext } from '../../layout/AppLayout';
 import { AudioContext } from '../../context/AudioContext';
-import { Icon } from '../../Icons';
+import { Icon } from '../../assets/icons/Icons';
 import { IoIosArrowDown } from 'react-icons/io';
 import { IoPlaySharp, IoPause, IoAddCircleOutline } from 'react-icons/io5';
 import { BsArrowsAngleContract } from 'react-icons/bs';

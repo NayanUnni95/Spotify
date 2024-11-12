@@ -1,5 +1,5 @@
 import React, { useEffect, useContext } from 'react';
-import { Icon } from '../../../Icons';
+import { Icon } from '../../../assets/icons/Icons';
 import styles from './Library.module.css';
 import VerticalCard from '../VerticalCard/VerticalCard';
 import VerticalCardSkeleton from '../VerticalCardSkeleton/VerticalCardSkeleton';

@@ -5,11 +5,11 @@ import TopPlaylist from '../../components/TopPlaylist/TopPlaylist';
 import HorizontalCard from '../../components/HorizontalScrollCard/HorizontalCard';
 import { useAuth } from '../../hooks/useAuth';
 import {
-  Several_BrowserCategory,
+  Several_Category,
   Several_Albums,
   New_Release,
   Top_Items,
-  Several_Artists,
+  Single_Artists,
   Featured_Playlist,
   Several_Tracks,
   Artists_TopTracks,
@@ -22,10 +22,10 @@ function HomeSection() {
   useEffect(() => {
     if (!homeData) {
       Promise.all([
-        fetchData(`${Several_BrowserCategory}`),
+        fetchData(`${Several_Category}`),
         // fetchData(`${Several_Albums}{id}`),
         // // fetchData(`${Top_Items}`),
-        // fetchData(`${Several_Artists}{id}`),
+        // fetchData(`${Single_Artists}{id}`),
         fetchData(`${Featured_Playlist}`),
         // fetchData(`${Several_Tracks}{id}`),
         // // fetchData(`${Artists_TopTracks}`),

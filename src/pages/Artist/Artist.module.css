@@ -1,0 +1,21 @@
+.innerSection {
+  display: flex;
+  flex-direction: column;
+  background: var(--primary-header-bg);
+  background: var(--primary-header-gradient-bg);
+  background-image: url('https://i.scdn.co/image/ab6761610000e5eb07129f934e1c9fcdff613596');
+  background-repeat: no-repeat;
+}
+.type {
+  color: #b8b8b8e0;
+  display: flex;
+  align-items: center;
+}
+@media only screen and (max-width: 768px) {
+  .type {
+    display: none;
+  }
+  .desc {
+    display: none;
+  }
+}

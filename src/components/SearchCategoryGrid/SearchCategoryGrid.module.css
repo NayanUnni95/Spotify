@@ -19,7 +19,7 @@
   position: relative;
   margin-bottom: 1rem;
 }
-.categoryCard {
+.categoryCard a {
   border-radius: 0.3rem;
   overflow: hidden;
   position: relative;

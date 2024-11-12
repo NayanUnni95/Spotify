@@ -95,10 +95,6 @@ button {
 .type {
   color: #b8b8b8e0;
 }
-.title {
-  display: none;
-  margin-top: 1rem;
-}
 .title h1 {
   font-size: x-large;
   font-weight: bolder;
@@ -215,11 +211,22 @@ button {
   cursor: not-allowed;
 }
 @media only screen and (max-width: 426px) {
+  .innerSection header {
+    padding: 0;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+  .detailsSection {
+    margin: 1rem;
+  }
   .navigationBar {
     display: none;
   }
   .imgSection div img {
-    display: none;
+    width: 12rem;
+    height: 12rem;
+    border-radius: 0.2rem;
   }
   .songManageSection {
     display: none;

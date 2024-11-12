@@ -29,6 +29,20 @@
   text-transform: capitalize;
   color: var(--primary-background);
 }
+.privacyAndPolicySection {
+  display: flex;
+}
+.privacyAndPolicySection input[type='checkbox'] {
+  margin: 0.5rem 0.5rem 0.5rem 0;
+}
+.privacyAndPolicySection button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.privacyAndPolicySection svg {
+  margin-left: 0.3rem;
+}
 .contentSection {
   padding: 2rem;
   display: flex;

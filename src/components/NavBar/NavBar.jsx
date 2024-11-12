@@ -1,15 +1,17 @@
-import React, { useEffect, useContext } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Icon } from '../../Icons';
+import { Icon } from '../../assets/icons/Icons';
 import { CgProfile } from 'react-icons/cg';
 import styles from './NavBar.module.css';
 import { useAuth } from '../../hooks/useAuth';
 import { Profile } from '../../constants/constant';
 import { DataContext } from '../../context/DataCacheContext';
+import Menu from '../Preferences/Menu';
 
 function NavBar() {
   const { fetchData } = useAuth();
   const navigate = useNavigate();
+  const [showMenu, setShowMenu] = useState(false);
   const { profileData, setProfileData } = useContext(DataContext);
 
   useEffect(() => {
@@ -34,7 +36,7 @@ function NavBar() {
           <Icon name={'right'} size={20} />
         </button>
       </div>
-      <div className={styles.navProfile}>
+      <div className={styles.navProfile} onClick={() => setShowMenu(!showMenu)}>
         {profileData && profileData.images.length != 0 ? (
           <img
             src={profileData.images[0].url}
@@ -45,6 +47,7 @@ function NavBar() {
           <CgProfile size={25} color="var(--primary-font-color)" />
         )}
       </div>
+      {showMenu && <Menu />}
     </div>
   );
 }

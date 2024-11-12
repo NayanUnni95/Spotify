@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Outlet, useNavigate } from 'react-router-dom';
+import { Outlet, Navigate } from 'react-router-dom';
 import LeftSection from '../components/LeftSection/LeftSection';
 import RightSection from '../components/RightSection/RightSection';
 import BottomSection from '../components/BottomSection/BottomSection';
@@ -14,23 +14,24 @@ const MyContext = React.createContext();
 
 function AppLayout() {
   const { spotifyAuthReturnParams, setToken, getToken } = useAuth();
-  const navigate = useNavigate();
   const [showPlayer, setShowPlayer] = useState(false);
   const [showRightPanel, setShowRightPanel] = useState(false);
 
   const togglePlayerWindow = () => setShowPlayer(!showPlayer);
   const toggleRightPanel = () => setShowRightPanel(!showRightPanel);
-  const updateLibraryData = (data) => setLibraryData(data);
 
   useEffect(() => {
     if (window.location.hash) {
       const expires_in = Date.now();
       const { access_token } = spotifyAuthReturnParams(window.location.hash);
       setToken(access_token, expires_in);
-      window.location = '';
+      window.history.pushState({}, '', '/');
     }
-    if (!getToken()) navigate('/login');
   }, []);
+
+  if (!getToken() && !window.location.hash) {
+    return <Navigate to="/login" />;
+  }
   return (
     <div className={styles.container}>
       <DataCacheContext>

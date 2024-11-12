@@ -4,7 +4,7 @@ import NavBar from '../../components/NavBar/NavBar';
 import SearchBar from '../../components/SearchBar/SearchBar';
 import SearchCategoryGrid from '../../components/SearchCategoryGrid/SearchCategoryGrid';
 import { useAuth } from '../../hooks/useAuth';
-import { Several_BrowserCategory } from '../../constants/constant';
+import { Several_Category } from '../../constants/constant';
 import { DataContext } from '../../context/DataCacheContext';
 
 function Search() {
@@ -13,7 +13,7 @@ function Search() {
 
   useEffect(() => {
     if (!searchCategory) {
-      fetchData(`${Several_BrowserCategory}?limit=50`)
+      fetchData(`${Several_Category}?limit=50`)
         .then((res) => {
           setSearchCategory(res.categories.items);
         })

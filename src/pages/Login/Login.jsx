@@ -1,8 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useState } from 'react';
+import { FaCaretUp, FaCaretDown } from 'react-icons/fa';
 import styles from './Login.module.css';
 import SpotifyLogo from '../../assets/images/Spotify_Logo_Black.png';
 
 function Login() {
+  const [show, setShow] = useState(false);
   const config = () => {
     const clientId = import.meta.env.VITE_CLIENT_ID;
     const redirectUri = import.meta.env.VITE_HOME_URL;
@@ -33,39 +35,49 @@ function Login() {
         <div className={styles.contentSection}>
           <div>
             <span>Get Started,</span>to your musical journey with spotify
-            client, simply log in with your existing account or <br />
+            client, simply login with your existing account or <br />
             <a href="https://accounts.spotify.com/en/login">
               create a new one.
             </a>
             <p>
               Once you're logged in, this app will access you following data
             </p>
-            <div className={styles.conditionSection}>
-              <ul>
-                <li>
-                  <span>user-read-private</span>: Access your user profile data.
-                </li>
-                <li>
-                  <span>user-read-email</span>: Access your email address.
-                </li>
-                <li>
-                  <span>playlist-read-private</span>: Read access to user's
-                  private playlists.
-                </li>
-                <li>
-                  <span>user-library-read</span>: Read access to a user's
-                  library.
-                </li>
-                <li>
-                  <span>user-read-recently-played</span>: Access to a user's
-                  recently played items.
-                </li>
-                <li>
-                  <span>user-top-read</span>: Read access to a user's top
-                  artists and tracks.
-                </li>
-              </ul>
+            <div className={styles.privacyAndPolicySection}>
+              <input type="checkbox" defaultChecked />
+              <button onClick={() => setShow(!show)}>
+                <span>Privacy and Policy</span>
+                {!show ? <FaCaretDown size={17} /> : <FaCaretUp size={17} />}
+              </button>
             </div>
+            {show && (
+              <div className={styles.conditionSection}>
+                <ul>
+                  <li>
+                    <span>user-read-private</span>: Access your user profile
+                    data.
+                  </li>
+                  <li>
+                    <span>user-read-email</span>: Access your email address.
+                  </li>
+                  <li>
+                    <span>playlist-read-private</span>: Read access to user's
+                    private playlists.
+                  </li>
+                  <li>
+                    <span>user-library-read</span>: Read access to a user's
+                    library.
+                  </li>
+                  <li>
+                    <span>user-read-recently-played</span>: Access to a user's
+                    recently played items.
+                  </li>
+                  <li>
+                    <span>user-top-read</span>: Read access to a user's top
+                    artists and tracks.
+                  </li>
+                </ul>
+              </div>
+            )}
           </div>
         </div>
         <div className={styles.btnSection}>

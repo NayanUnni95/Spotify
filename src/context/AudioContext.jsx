@@ -1,5 +1,6 @@
 import React, { useState, createContext, useRef } from 'react';
 import AudioPlayer from 'react-player';
+import updateMediaContent from '../api/MediaSessionAPI';
 
 export const AudioContext = createContext();
 
@@ -24,6 +25,8 @@ function AudioProvider({ children }) {
   const setVolumeValue = (value) => {
     setVolume(value);
   };
+
+  updateMediaContent();
 
   // Reference data
   const TrackData = {
@@ -98,8 +101,10 @@ function AudioProvider({ children }) {
         onProgress={setProgress}
         onDuration={setDuration}
         ref={playerRef}
-        onEnded={() => setIsPlaying(false)}
         volume={volume}
+        onEnded={() => setIsPlaying(false)}
+        onPause={() => setIsPlaying(false)}
+        onPlay={() => setIsPlaying(true)}
         style={{ display: 'none' }}
       />
       {children}

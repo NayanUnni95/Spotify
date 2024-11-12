@@ -13,8 +13,7 @@ const Featured_Playlist = '/browse/featured-playlists';
 const Several_Tracks = '/tracks/{id}';
 const Artists_Album = '/artists/{id}/albums';
 const Artists_TopTracks = '/artists/{id}/top-tracks';
-const Several_Artists = '/artists/{id}';
-const Several_BrowserCategory = '/browse/categories';
+const Single_Artists = '/artists';
 const Search_Item = '/search';
 const Profile = '/me';
 const Recently_Played = '/me/player/recently-played';
@@ -24,6 +23,9 @@ const Today_Hits = '/search?q=playlist:"Today\'s Biggest Hits"&type=playlist';
 const Charts = '/search?q=charts&type=playlist';
 const County_Best = `/browse/categories?country=`;
 const User = '/users';
+const Category_Playlist =
+  '/playlists'; /* '/browse/categories/{category_id}/playlists'
+  (Several_Category + Category_Playlist) */
 
 export {
   Token_URL,
@@ -41,8 +43,7 @@ export {
   Several_Tracks,
   Artists_Album,
   Artists_TopTracks,
-  Several_Artists,
-  Several_BrowserCategory,
+  Single_Artists,
   Search_Item,
   Profile,
   Recently_Played,
@@ -51,4 +52,5 @@ export {
   Charts,
   County_Best,
   User,
+  Category_Playlist,
 };
