@@ -1,5 +1,6 @@
 import Cookies from 'universal-cookie';
 import { instance as axios } from '../axios/configuration';
+import { FastAverageColor } from 'fast-average-color';
 
 export const useAuth = () => {
   const fetchData = async (endpoint) => {
@@ -103,6 +104,17 @@ export const useAuth = () => {
 
     return `${formattedMinutes}:${formattedSeconds}`;
   };
+  const predictColor = (url, callback) => {
+    const fac = new FastAverageColor();
+    fac
+      .getColorAsync(url)
+      .then((color) => {
+        callback(color);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  };
   return {
     fetchData,
     spotifyAuthReturnParams,
@@ -111,5 +123,6 @@ export const useAuth = () => {
     removeToken,
     DateConverter,
     msToTime,
+    predictColor,
   };
 };

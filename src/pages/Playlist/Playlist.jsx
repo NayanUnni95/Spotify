@@ -20,7 +20,8 @@ function Playlist() {
   const [playlistOwner, setPlaylistOwner] = useState(null);
   const [nextEndpoint, setNextEndpoint] = useState(null);
   const [visibleRows, setVisibleRows] = useState({});
-  const { fetchData, DateConverter, msToTime } = useAuth();
+  const [bgColor, setBgColor] = useState('black');
+  const { fetchData, DateConverter, msToTime, predictColor } = useAuth();
   const { playlistId } = useParams();
   const inputRef = useRef(null);
   const lastItemRef = useRef(null);
@@ -50,6 +51,7 @@ function Playlist() {
     fetchData(`${PlaylistWithId}/${playlistId}`)
       .then((res) => {
         setPlaylistData(res);
+        predictColor(res.images[0].url, (result) => setBgColor(result.rgba));
         setNextEndpoint(res.tracks.next);
         fetchData(`${User}/${res.owner.id}`)
           .then((res) => {
@@ -93,7 +95,10 @@ function Playlist() {
   }
   return (
     <div className={styles.collectionSection}>
-      <div className={styles.innerSection}>
+      <div
+        className={styles.innerSection}
+        style={{ backgroundColor: `${bgColor}` }}
+      >
         <div className={styles.navigationBar}>
           <NavBar />
         </div>
@@ -121,6 +126,7 @@ function Playlist() {
               <img
                 src={playlistData && playlistData.images[0].url}
                 alt={playlistData && playlistData.name}
+                // onChange={() => predictColor(playlistData.images[0].url)}
               />
             </div>
           </div>
