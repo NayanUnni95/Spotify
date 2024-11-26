@@ -1,5 +1,11 @@
 # Spotify Client Web App
 
+![Website](https://img.shields.io/website?url=https%3A%2F%2Fspotify-gilt-ten.vercel.app%2F)
+
+![GitHub repo size](https://img.shields.io/github/repo-size/NayanUnni95/Spotify)
+
+![GitHub License](https://img.shields.io/github/license/NayanUnni95/Spotify)
+
 This repository contains a Spotify Clone Web App built using ReactJS and the Spotify Web API. The app is designed for fetches data through a personal Spotify account. This project focuses on the frontend functionality, including data fetching, authentication, but does not include the music playback feature.
 
 ## Features
@@ -64,10 +70,31 @@ npm run dev
 
 ###### This will start the development server and open the app in your default web browser.
 
-###### Format file using Prettier
+### Developer Commands
+
+###### Prettier:
 
 ```bash
 npx prettier --write <filename>
+```
+
+###### Preview:
+
+```bash
+npm run preview
+```
+
+###### Production Build:
+
+```bash
+npm run build
+```
+
+###### Run Production Build:
+
+```bash
+npm install -g http-server;
+http-server dist
 ```
 
 ### Usage
@@ -82,10 +109,6 @@ npx prettier --write <filename>
 - After logging in, you will be redirected back to the app.
 - You can now view your playlists, track details, and user profile information.
 
-<!-- 3. User Differentiation
-
-- The app will display different features based on whether you are a normal or premium Spotify user. -->
-
 ### Acknowledgements
 
 - [Spotify Web API](https://developer.spotify.com/documentation/web-api)
@@ -95,3 +118,7 @@ npx prettier --write <filename>
 ### License
 
 This project is licensed under the MIT License. See the [LICENSE](./LICENSE) file for details.
+
+```
+
+```

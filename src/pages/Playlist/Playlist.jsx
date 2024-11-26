@@ -11,6 +11,7 @@ import { useAuth } from '../../hooks/useAuth';
 import { PlaylistWithId, User } from '../../constants/constant';
 import equ from '../../assets/images/equaliser-animated-green.gif';
 import { ThreeDots } from 'react-loader-spinner';
+import RowLoading from '../../components/RowLoadingSkeleton/RowLoading';
 
 function Playlist() {
   const navigate = useNavigate();
@@ -234,6 +235,7 @@ function Playlist() {
                   </tr>
                 );
               })}
+              {nextEndpoint && <RowLoading />}
             </tbody>
           </table>
         </div>

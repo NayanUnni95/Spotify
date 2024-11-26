@@ -13,6 +13,7 @@ import equ from '../../assets/images/equaliser-animated-green.gif';
 import { DataContext } from '../../context/DataCacheContext';
 import { ThreeDots } from 'react-loader-spinner';
 import { CgProfile } from 'react-icons/cg';
+import RowLoading from '../../components/RowLoadingSkeleton/RowLoading';
 
 function Collection() {
   const navigate = useNavigate();
@@ -94,7 +95,7 @@ function Collection() {
           <div style={{ display: 'flex' }}>
             <div className={styles.navigationBtn}>
               <button onClick={() => navigate(-1)}>
-                <FaArrowLeft size={20} color="black" />
+                <FaArrowLeft size={20} color="#ffffff" />
               </button>
             </div>
             <div className={styles.title}>
@@ -131,7 +132,7 @@ function Collection() {
             </div>
             <div className={styles.desc}>
               <h5 className={styles.name}>
-                {profileData.images[0] ? (
+                {profileData && profileData.images[0] ? (
                   <img
                     src={profileData.images[0].url}
                     alt={profileData && profileData.display_name}
@@ -233,6 +234,7 @@ function Collection() {
                   </tr>
                 );
               })}
+              {nextEndpoint && <RowLoading />}
             </tbody>
           </table>
         </div>

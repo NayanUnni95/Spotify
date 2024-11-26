@@ -1,3 +1,4 @@
+const AUTH_URL = 'https://accounts.spotify.com/authorize';
 const Token_URL = 'https://accounts.spotify.com/api/token';
 const Base_URL = 'https://api.spotify.com/v1';
 const Liked_Songs = '/me/tracks?limit=50';
@@ -26,8 +27,11 @@ const User = '/users';
 const Category_Playlist =
   '/playlists'; /* '/browse/categories/{category_id}/playlists'
   (Several_Category + Category_Playlist) */
+const scope =
+  'user-read-private user-read-email playlist-modify-private playlist-modify-public playlist-read-private user-top-read user-library-read user-follow-read user-read-recently-played';
 
 export {
+  AUTH_URL,
   Token_URL,
   Base_URL,
   Liked_Songs,
@@ -53,4 +57,5 @@ export {
   County_Best,
   User,
   Category_Playlist,
+  scope,
 };

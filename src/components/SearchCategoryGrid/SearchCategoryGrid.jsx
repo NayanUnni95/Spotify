@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from './SearchCategoryGrid.module.css';
 
-function SearchCategoryGrid({ category }) {
+function SearchCategoryGrid({ category, lastItemRef }) {
   return (
     <div className={styles.categoryContainer}>
       <div className={styles.innerContainer}>
@@ -11,8 +11,13 @@ function SearchCategoryGrid({ category }) {
         </div>
         <div className={styles.innerCategoryContainer}>
           {category?.map((data, index) => {
+            const isLastIndex = index === category.length - 1;
             return (
-              <div className={styles.categoryCard} key={index}>
+              <div
+                className={styles.categoryCard}
+                key={index}
+                ref={isLastIndex ? lastItemRef : null}
+              >
                 <Link to={`/genre/${data.id}`}>
                   <div>
                     <img src={data.icons[0].url} className={styles.cardImg} />

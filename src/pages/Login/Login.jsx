@@ -2,15 +2,14 @@ import React, { useState } from 'react';
 import { FaCaretUp, FaCaretDown } from 'react-icons/fa';
 import styles from './Login.module.css';
 import SpotifyLogo from '../../assets/images/Spotify_Logo_Black.png';
+import { AUTH_URL, scope } from '../../constants/constant';
 
 function Login() {
   const [show, setShow] = useState(false);
   const config = () => {
-    const clientId = import.meta.env.VITE_CLIENT_ID;
-    const redirectUri = import.meta.env.VITE_HOME_URL;
-    const scope =
-      'user-read-private user-read-email playlist-modify-private playlist-modify-public playlist-read-private user-top-read user-library-read user-follow-read user-read-recently-played';
-    let url = 'https://accounts.spotify.com/authorize';
+    const clientId = import.meta.env.VITE_CLIENT_ID || null;
+    const redirectUri = import.meta.env.VITE_HOME_URL || null;
+    let url = AUTH_URL;
     url += '?response_type=token';
     url += '&client_id=' + encodeURIComponent(clientId);
     url += '&redirect_uri=' + encodeURIComponent(redirectUri);
