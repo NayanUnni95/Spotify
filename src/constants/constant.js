@@ -7,7 +7,7 @@ const Playlist = '/me/playlists';
 const PlaylistWithId = '/playlists';
 const Artists = '/me/following?type=artist&limit=50';
 const Several_Category = 'browse/categories';
-const Several_Albums = '/albums/{id}';
+const Several_Albums = '/albums';
 const New_Release = '/browse/new-releases';
 const Top_Items = '/me/top/{type(artists/tracks)}';
 const Featured_Playlist = '/browse/featured-playlists';
