@@ -1,10 +1,8 @@
 # Spotify Client Web App
 
-![Website](https://img.shields.io/website?url=https%3A%2F%2Fspotify-gilt-ten.vercel.app%2F)
+<!-- ![Website](https://img.shields.io/website?url=https%3A%2F%2Fspotify-gilt-ten.vercel.app%2F) -->
 
-![GitHub repo size](https://img.shields.io/github/repo-size/NayanUnni95/Spotify)
-
-![GitHub License](https://img.shields.io/github/license/NayanUnni95/Spotify)
+![GitHub repo size](https://img.shields.io/github/repo-size/NayanUnni95/Spotify) ![GitHub License](https://img.shields.io/github/license/NayanUnni95/Spotify)
 
 This repository contains a Spotify Clone Web App built using ReactJS and the Spotify Web API. The app is designed for fetches data through a personal Spotify account. This project focuses on the frontend functionality, including data fetching, authentication, but does not include the music playback feature.
 

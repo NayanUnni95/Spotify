@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import styles from './Playlist.module.css';
+import styles from './Album.module.css';
 import { Icon } from '../../assets/icons/Icons';
 import { FaArrowLeft } from 'react-icons/fa6';
 import { RiMore2Line } from 'react-icons/ri';
@@ -8,54 +8,34 @@ import { IoPlay } from 'react-icons/io5';
 import NavBar from '../../components/NavBar/NavBar';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
-import { PlaylistWithId, User } from '../../constants/constant';
+import { Several_Albums, Single_Artists } from '../../constants/constant';
 import equ from '../../assets/images/equaliser-animated-green.gif';
 import { ThreeDots } from 'react-loader-spinner';
-import RowLoading from '../../components/RowLoadingSkeleton/RowLoading';
 
-function Playlist() {
+function Album() {
   const navigate = useNavigate();
   const [cardHover, setCardHover] = useState(false);
-  const [playlistData, setPlaylistData] = useState(null);
-  const [playlistOwner, setPlaylistOwner] = useState(null);
-  const [nextEndpoint, setNextEndpoint] = useState(null);
+  const [albumData, setAlbumData] = useState(null);
+  const [albumOwner, setAlbumOwner] = useState(null);
   const [visibleRows, setVisibleRows] = useState({});
   const [bgColor, setBgColor] = useState('black');
-  const { fetchData, DateConverter, msToTime, predictColor } = useAuth();
-  const { playlistId } = useParams();
+  const { fetchData, msToTime, predictColor } = useAuth();
+  const { albumId } = useParams();
   const inputRef = useRef(null);
-  const lastItemRef = useRef(null);
 
   const handleClick = (index) => {
     setVisibleRows((prevState) => ({
       [index]: !prevState[index],
     }));
   };
-
-  const repeatedApiCAll = () => {
-    if (!nextEndpoint) return;
-    fetchData(nextEndpoint)
-      .then((res) => {
-        playlistData.tracks.items = [
-          ...playlistData.tracks.items,
-          ...res.items,
-        ];
-        setNextEndpoint(res.next);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-
   useEffect(() => {
-    fetchData(`${PlaylistWithId}/${playlistId}`)
+    fetchData(`${Several_Albums}/${albumId}`)
       .then((res) => {
-        setPlaylistData(res);
+        setAlbumData(res);
         predictColor(res.images[0].url, (result) => setBgColor(result.rgba));
-        setNextEndpoint(res.tracks.next);
-        fetchData(`${User}/${res.owner.id}`)
+        fetchData(`${Single_Artists}/${res.artists[0].id}`)
           .then((res) => {
-            setPlaylistOwner(res);
+            setAlbumOwner(res);
           })
           .catch((err) => {
             console.log(err);
@@ -64,27 +44,8 @@ function Playlist() {
       .catch((err) => {
         console.log(err);
       });
-  }, [playlistId]);
-
-  useEffect(() => {
-    if (!nextEndpoint) return;
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting) {
-          repeatedApiCAll();
-        }
-      },
-      { threshold: 1.0 }
-    );
-    if (lastItemRef.current) observer.observe(lastItemRef.current);
-    return () => {
-      if (lastItemRef.current) {
-        observer.unobserve(lastItemRef.current);
-        observer.disconnect();
-      }
-    };
-  }, [repeatedApiCAll, nextEndpoint]);
-  if (!playlistData) {
+  }, [albumId]);
+  if (!albumData) {
     return (
       <div className={styles.collectionSection}>
         <div className={styles.loaderSection}>
@@ -124,34 +85,33 @@ function Playlist() {
           <div className={styles.imgSection}>
             <div>
               <img
-                src={playlistData && playlistData.images[0].url}
-                alt={playlistData && playlistData.name}
-                // onChange={() => predictColor(playlistData.images[0].url)}
+                src={albumData && albumData.images[0].url}
+                alt={albumData && albumData.name}
               />
             </div>
           </div>
           <div className={styles.detailsSection}>
             <div className={styles.type}>
-              <span>{playlistData && playlistData.type}</span>
+              <span>{albumData && albumData.type}</span>
             </div>
             <div className={styles.title}>
-              <h1>{playlistData && playlistData.name}</h1>
+              <h1>{albumData && albumData.name}</h1>
             </div>
             {/* <div className={styles.desc}>
-              <h4>{playlistData && playlistData.description}</h4>
-            </div> */}
+                <h4>{albumData && albumData.description}</h4>
+              </div> */}
             <div className={styles.desc}>
               <h5 className={styles.name}>
                 <img
-                  src={playlistOwner && playlistOwner.images[0].url}
-                  alt={playlistOwner && playlistOwner.display_name}
+                  src={albumOwner && albumOwner.images[0].url}
+                  alt={albumOwner && albumOwner.display_name}
                 />
-                <Link to={playlistOwner && `/user/${playlistOwner.id}`}>
-                  <h3>{playlistOwner && playlistOwner.display_name}</h3>
+                <Link to={albumOwner && `/artist/${albumOwner.id}`}>
+                  <h3>{albumOwner && albumOwner.name}</h3>
                 </Link>
               </h5>
               <span className={styles.songCount}>
-                &nbsp;• {playlistData.tracks.total} songs
+                &nbsp;• {albumData.tracks.total} songs
               </span>
             </div>
           </div>
@@ -163,23 +123,15 @@ function Playlist() {
               <tr>
                 <th className={styles.tableSongNoLabel}>#</th>
                 <th className={styles.tableSongTitleLabel}>title</th>
-                <th className={styles.tableSongAlbumLabel}>album</th>
-                <th className={styles.tableSongDateLabel}>date added</th>
                 <th className={styles.tableSongDurationLabel}>
                   <LuClock3 />
                 </th>
               </tr>
             </thead>
             <tbody>
-              {playlistData.tracks.items.map((data, index) => {
-                const isLastIndex =
-                  index === playlistData.tracks.items.length - 1;
+              {albumData.tracks.items.map((data, index) => {
                 return (
-                  <tr
-                    key={index}
-                    onClick={() => handleClick(index)}
-                    ref={isLastIndex ? lastItemRef : null}
-                  >
+                  <tr key={index} onClick={() => handleClick(index)}>
                     <td className={styles.songNo}>
                       {cardHover ? (
                         <IoPlay />
@@ -202,17 +154,14 @@ function Playlist() {
                       />
                     </td>
                     <td className={styles.songMainData}>
-                      <div className={styles.songAvatar}>
-                        <img src={data.track.album.images[1].url} />
-                      </div>
                       <div className={styles.songDetails}>
                         <div className={styles.songName}>
-                          <Link to={`/track/${data.track.id}`}>
-                            <span>{data.track.name}</span>
+                          <Link to={`/track/${data.id}`}>
+                            <span>{data.name}</span>
                           </Link>
                         </div>
                         <div className={styles.artistName}>
-                          {data.track.artists.map((obj, index) => {
+                          {data.artists.map((obj, index) => {
                             return (
                               <Link to={`/artist/${obj.id}`} key={index}>
                                 <span>{obj.name},</span>
@@ -222,18 +171,8 @@ function Playlist() {
                         </div>
                       </div>
                     </td>
-                    <td className={styles.songAlbumName}>
-                      <div className={styles.albumNameSection}>
-                        <Link to={`/album/${data.track.album.id}`}>
-                          <span>{data.track.album.name}</span>
-                        </Link>
-                      </div>
-                    </td>
-                    <td className={styles.songAddedTime}>
-                      <span>{DateConverter(data.added_at)}</span>
-                    </td>
                     <td className={styles.songDuration}>
-                      <span>{msToTime(data.track.duration_ms)}</span>
+                      <span>{msToTime(data.duration_ms)}</span>
                     </td>
                     <td className={styles.moreBtn}>
                       <RiMore2Line />
@@ -241,7 +180,6 @@ function Playlist() {
                   </tr>
                 );
               })}
-              {nextEndpoint && <RowLoading />}
             </tbody>
           </table>
         </div>
@@ -250,4 +188,4 @@ function Playlist() {
   );
 }
 
-export default Playlist;
+export default Album;

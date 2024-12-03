@@ -15,6 +15,7 @@ import Collection from './pages/Collection/Collection';
 import Playlist from './pages/Playlist/Playlist';
 import Genre from './pages/Genre/Genre';
 import Artist from './pages/Artist/Artist';
+import Album from './pages/Album/Album';
 
 function App() {
   return (
@@ -28,7 +29,7 @@ function App() {
             <Route path="/collection/tracks" element={<Collection />} />
             <Route path="/playlist/:playlistId" element={<Playlist />} />
             <Route path="/artist/:artistId" element={<Artist />} />
-            <Route path="/album/:albumId" element={'Album Page'} />
+            <Route path="/album/:albumId" element={<Album />} />
             <Route path="/track/:trackId" element={'Track Page'} />
             <Route path="/user/:userId" element={'User Page'} />
             <Route path="/genre/:genreId" element={<Genre />} />
