@@ -26,7 +26,7 @@ function HomeSection() {
         // fetchData(`${Several_Albums}{id}`),
         // // fetchData(`${Top_Items}`),
         // fetchData(`${Single_Artists}{id}`),
-        fetchData(`${Featured_Playlist}`),
+        // fetchData(`${Featured_Playlist}`),
         // fetchData(`${Several_Tracks}{id}`),
         // // fetchData(`${Artists_TopTracks}`),
         fetchData(`${New_Release}`),

@@ -24,11 +24,6 @@ function Search() {
         console.log(err);
       });
   };
-
-  useEffect(() => {
-    console.log(searchCategory);
-  }, [searchCategory]);
-
   useEffect(() => {
     if (!searchCategory) {
       fetchData(`${Several_Category}?limit=50`)

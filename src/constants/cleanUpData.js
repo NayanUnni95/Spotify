@@ -35,48 +35,51 @@ const LikedSongs = (userData) => {
 const album = (albumData) => {
   if (albumData && albumData.total > 0) {
     return albumData.items.map((obj) => {
-      return {
-        title: removeCharactersAfterSymbol(obj.album.name),
-        type: obj.album.type,
-        image: obj.album.images,
-        songs: obj.album.tracks.total,
-        id: obj.album.id,
-        href: obj.album.href,
-        items: null,
-        routePath: obj.album.type,
-      };
+      if (obj != null)
+        return {
+          title: removeCharactersAfterSymbol(obj.album.name),
+          type: obj.album.type,
+          image: obj.album.images,
+          songs: obj.album.tracks.total,
+          id: obj.album.id,
+          href: obj.album.href,
+          items: null,
+          routePath: obj.album.type,
+        };
     });
   }
 };
 const playlist = (playlistData) => {
   if (playlistData && playlistData.total > 0) {
     return playlistData.items.map((obj) => {
-      return {
-        title: removeCharactersAfterSymbol(obj.name),
-        type: obj.type,
-        image: obj.images,
-        songs: obj.tracks.total,
-        id: obj.id,
-        href: obj.href,
-        items: null,
-        routePath: obj.type,
-      };
+      if (obj != null)
+        return {
+          title: removeCharactersAfterSymbol(obj.name),
+          type: obj.type,
+          image: obj.images,
+          songs: obj.tracks.total,
+          id: obj.id,
+          href: obj.href,
+          items: null,
+          routePath: obj.type,
+        };
     });
   }
 };
 const artists = (artistsData) => {
   if (artistsData && artistsData.artists.total > 0) {
     return artistsData.artists.items.map((obj) => {
-      return {
-        title: removeCharactersAfterSymbol(obj.name),
-        type: obj.type,
-        image: obj.images,
-        songs: null,
-        id: obj.id,
-        href: obj.href,
-        items: null,
-        routePath: obj.type,
-      };
+      if (obj != null)
+        return {
+          title: removeCharactersAfterSymbol(obj.name),
+          type: obj.type,
+          image: obj.images,
+          songs: null,
+          id: obj.id,
+          href: obj.href,
+          items: null,
+          routePath: obj.type,
+        };
     });
   }
 };
