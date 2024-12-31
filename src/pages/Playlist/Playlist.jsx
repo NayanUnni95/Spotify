@@ -8,7 +8,7 @@ import { IoPlay } from 'react-icons/io5';
 import NavBar from '../../components/NavBar/NavBar';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
-import { PlaylistWithId, User } from '../../constants/constant';
+import { PlaylistWithId, User_Profile } from '../../constants/constant';
 import equ from '../../assets/images/equaliser-animated-green.gif';
 import { ThreeDots } from 'react-loader-spinner';
 import RowLoading from '../../components/RowLoadingSkeleton/RowLoading';
@@ -50,16 +50,18 @@ function Playlist() {
   useEffect(() => {
     fetchData(`${PlaylistWithId}/${playlistId}`)
       .then((res) => {
-        setPlaylistData(res);
-        predictColor(res.images[0].url, (result) => setBgColor(result.rgba));
-        setNextEndpoint(res.tracks.next);
-        fetchData(`${User}/${res.owner.id}`)
-          .then((res) => {
-            setPlaylistOwner(res);
-          })
-          .catch((err) => {
-            console.log(err);
-          });
+        if (res) {
+          setPlaylistData(res);
+          predictColor(res.images[0].url, (result) => setBgColor(result.rgba));
+          setNextEndpoint(res.tracks.next);
+          fetchData(`${User_Profile}/${res.owner.id}`)
+            .then((res) => {
+              setPlaylistOwner(res);
+            })
+            .catch((err) => {
+              console.log(err);
+            });
+        }
       })
       .catch((err) => {
         console.log(err);
@@ -105,7 +107,10 @@ function Playlist() {
         <nav>
           <div className={styles.navigationBtn}>
             <button onClick={() => navigate(-1)}>
-              <FaArrowLeft size={20} color="black" />
+              <FaArrowLeft
+                size={20}
+                style={{ color: 'var(--primary-background)' }}
+              />
             </button>
           </div>
           <div className={styles.songManageSection}>

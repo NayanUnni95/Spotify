@@ -49,10 +49,12 @@ const album = (albumData) => {
     });
   }
 };
-const playlist = (playlistData) => {
+export const playlist = (playlistData) => {
   if (playlistData && playlistData.total > 0) {
     return playlistData.items.map((obj) => {
-      if (obj != null)
+      if (obj != null) {
+        // console.log(obj);
+
         return {
           title: removeCharactersAfterSymbol(obj.name),
           type: obj.type,
@@ -63,6 +65,7 @@ const playlist = (playlistData) => {
           items: null,
           routePath: obj.type,
         };
+      }
     });
   }
 };
@@ -83,6 +86,97 @@ const artists = (artistsData) => {
     });
   }
 };
+export const artistAlbums = (artistAlbumsData) => {
+  if (artistAlbumsData && artistAlbumsData.total > 0)
+    return {
+      title: 'artists playlists',
+      items: artistAlbumsData.items.map((obj) => {
+        if (obj != null) {
+          return {
+            name: obj.name,
+            type: obj.type,
+            id: obj.id,
+            artists: obj.artists.map((data) => {
+              return {
+                name: data.name,
+                id: data.id,
+              };
+            }),
+            image: obj.images,
+          };
+        }
+      }),
+    };
+};
+const genreTracks = (trackData) => {
+  if (trackData && trackData.total > 0) {
+    return {
+      title: 'Relative Tracks',
+      items: trackData.items.map((obj) => {
+        if (obj != null) {
+          return {
+            name: removeCharactersAfterSymbol(obj.name),
+            id: obj.id,
+            type: obj.type,
+            image: obj.album.images,
+            artists: [],
+          };
+        }
+      }),
+    };
+  }
+};
+const genreAlbum = (albumData) => {
+  if (albumData && albumData.total > 0) {
+    return {
+      title: 'Relative Albums',
+      items: albumData.items.map((obj) => {
+        if (obj != null)
+          return {
+            name: removeCharactersAfterSymbol(obj.name),
+            id: obj.id,
+            type: obj.type,
+            image: obj.images,
+            artists: [],
+          };
+      }),
+    };
+  }
+};
+const genreArtist = (artistsData) => {
+  if (artistsData && artistsData.total > 0) {
+    return {
+      title: 'Relative Artist',
+      items: artistsData.items.map((obj) => {
+        if (obj != null)
+          return {
+            name: removeCharactersAfterSymbol(obj.name),
+            id: obj.id,
+            type: obj.type,
+            image: obj.images,
+            artists: [],
+          };
+      }),
+    };
+  }
+};
+export const genrePlaylist = (playlistData) => {
+  if (playlistData && playlistData.total > 0) {
+    return {
+      title: 'Relative Playlist',
+      items: playlistData.items.map((obj) => {
+        if (obj != null)
+          return {
+            name: removeCharactersAfterSymbol(obj.name),
+            id: obj.id,
+            type: obj.type,
+            image: obj.images,
+            artists: [],
+          };
+      }),
+    };
+  }
+};
 export const DataCleanUp = (dataSet) => {
   return [
     LikedSongs(dataSet[0]),
@@ -90,4 +184,12 @@ export const DataCleanUp = (dataSet) => {
     playlist(dataSet[2]),
     artists(dataSet[3]),
   ].flat(1);
+};
+export const GenreDataCleanUp = (dataSet) => {
+  return [
+    genreArtist(dataSet.artists),
+    genrePlaylist(dataSet.playlists),
+    genreTracks(dataSet.tracks),
+    genreAlbum(dataSet.albums),
+  ];
 };

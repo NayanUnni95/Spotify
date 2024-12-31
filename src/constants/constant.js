@@ -12,8 +12,6 @@ const New_Release = '/browse/new-releases';
 const Top_Items = '/me/top/{type(artists/tracks)}';
 const Featured_Playlist = '/browse/featured-playlists';
 const Several_Tracks = '/tracks/{id}';
-const Artists_Album = '/artists/{id}/albums';
-const Artists_TopTracks = '/artists/{id}/top-tracks';
 const Single_Artists = '/artists';
 const Search_Item = '/search';
 const Profile = '/me';
@@ -23,12 +21,13 @@ const Recommendation =
 const Today_Hits = '/search?q=playlist:"Today\'s Biggest Hits"&type=playlist';
 const Charts = '/search?q=charts&type=playlist';
 const County_Best = `/browse/categories?country=`;
-const User = '/users';
+const User_Profile = '/users';
 const Category_Playlist =
   '/playlists'; /* '/browse/categories/{category_id}/playlists'
   (Several_Category + Category_Playlist) */
 const scope =
   'user-read-private user-read-email playlist-modify-private playlist-modify-public playlist-read-private user-top-read user-library-read user-follow-read user-read-recently-played';
+const User_Follow_Read = '/me/following';
 
 export {
   AUTH_URL,
@@ -45,8 +44,6 @@ export {
   Top_Items,
   Featured_Playlist,
   Several_Tracks,
-  Artists_Album,
-  Artists_TopTracks,
   Single_Artists,
   Search_Item,
   Profile,
@@ -55,7 +52,8 @@ export {
   Today_Hits,
   Charts,
   County_Best,
-  User,
+  User_Profile,
   Category_Playlist,
   scope,
+  User_Follow_Read,
 };

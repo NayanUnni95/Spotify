@@ -31,15 +31,17 @@ function Album() {
   useEffect(() => {
     fetchData(`${Several_Albums}/${albumId}`)
       .then((res) => {
-        setAlbumData(res);
-        predictColor(res.images[0].url, (result) => setBgColor(result.rgba));
-        fetchData(`${Single_Artists}/${res.artists[0].id}`)
-          .then((res) => {
-            setAlbumOwner(res);
-          })
-          .catch((err) => {
-            console.log(err);
-          });
+        if (res) {
+          setAlbumData(res);
+          predictColor(res.images[0].url, (result) => setBgColor(result.rgba));
+          fetchData(`${Single_Artists}/${res.artists[0].id}`)
+            .then((res) => {
+              setAlbumOwner(res);
+            })
+            .catch((err) => {
+              console.log(err);
+            });
+        }
       })
       .catch((err) => {
         console.log(err);

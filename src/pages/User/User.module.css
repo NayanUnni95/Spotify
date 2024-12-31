@@ -159,7 +159,7 @@ button {
   margin: 2rem 0 1rem 2rem;
   color: var(--primary-font-color);
 }
-.tableContainer table {
+/* .tableContainer table {
   width: 100%;
   margin-bottom: 1rem;
 }
@@ -186,7 +186,7 @@ button {
 }
 .tableSongTitleLabel {
   display: flex;
-}
+} */
 .songMainData {
   display: flex;
   align-items: center;

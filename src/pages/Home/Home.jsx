@@ -12,7 +12,7 @@ import {
   Single_Artists,
   Featured_Playlist,
   Several_Tracks,
-  Artists_TopTracks,
+  // Artists_TopTracks,
 } from '../../constants/constant';
 import { DataContext } from '../../context/DataCacheContext';
 
@@ -46,55 +46,123 @@ function HomeSection() {
     items: [
       {
         name: 'Illuminati (From "Aavesham")',
+        id: '1kFNFsAZ4iZy4vjBEtT12I',
         type: 'track',
-        artists: 'Sushin Shyam, Dabzee, Vinayak Sasikumar',
-        image:
-          'https://i.scdn.co/image/ab67616d00001e02b54cdfbfaa828674ffecd12c',
+        artists: [
+          { name: 'Sushin Shyam', id: '1qFp8zDvsXyCsC5dqz8X4S' },
+          { name: 'Dabzee', id: '2JJKoRrK7Eec7jlcjFB7sc' },
+          { name: 'Vinayak Sasikumar', id: '51jfCC7m2rTGPDz06E2nvS' },
+        ],
+        image: [
+          {
+            url: 'https://i.scdn.co/image/ab67616d00001e02b54cdfbfaa828674ffecd12c',
+          },
+        ],
       },
       {
         name: 'Alif',
-        artists: 'Dabzee, Sa',
-        image:
-          'https://i.scdn.co/image/ab67616d00001e02b5a434e7ff471bcea5a529d1',
+        id: '0BdsMf23c1amsuZxqqFLI0',
+        type: 'track',
+        artists: [
+          { name: 'Dabzee', id: '2JJKoRrK7Eec7jlcjFB7sc' },
+          { name: 'Sa', id: '3eaS0SB97IZ1TVFv4XiTdm' },
+        ],
+        image: [
+          {
+            url: 'https://i.scdn.co/image/ab67616d00001e02b5a434e7ff471bcea5a529d1',
+          },
+        ],
       },
       {
         name: 'Ballaatha Jaathi',
-        artists: 'NJ, Dabzee, BABY JEAN, Rzee',
-        image:
-          'https://i.scdn.co/image/ab67616d00001e02a1c8b0a00fb2c7bf6cfe95b4',
+        id: '4tYxGORIOZSPLnZmrSpva7',
+        type: 'track',
+        artists: [
+          { name: 'NJ', id: '3CWoPzCX85ikTyt8nPrWJp' },
+          { name: 'Dabzee', id: '2JJKoRrK7Eec7jlcjFB7sc' },
+          { name: 'BABY JEAN', id: '3vhYECLQUeZVovqKwA5E0b' },
+          { name: 'Rzee', id: '0JDjRH8br9CkytJV93g1Et' },
+        ],
+        image: [
+          {
+            url: 'https://i.scdn.co/image/ab67616d00001e02a1c8b0a00fb2c7bf6cfe95b4',
+          },
+        ],
       },
       {
         name: 'Mathapithakkale (From "Aavesham")',
-        image:
-          'https://i.scdn.co/image/ab67616d00001e02c16053888313fbdc759a5b50',
-        artists: 'Sushin Shyam, Malayali Monkeys, MC Couper',
+        id: '4WaCnPpbycUQQiXBDxH7zx',
+        type: 'track',
+        artists: [
+          { name: 'Sushin Shyam', id: '1qFp8zDvsXyCsC5dqz8X4S' },
+          { name: ' Malayali Monkeys', id: '6d3qaRXhI6yFy5MgYQ56qI' },
+          { name: 'MC Couper', id: '4AJoyMa0S1kgtcde6gtKBB' },
+        ],
+        image: [
+          {
+            url: 'https://i.scdn.co/image/ab67616d00001e02c16053888313fbdc759a5b50',
+          },
+        ],
       },
       {
         name: 'NISHANI',
-        artists: 'Rishi Roy, Dabzee',
-        image:
-          'https://i.scdn.co/image/ab67616d00001e027c7d9b3969192c34a90c509a',
+        id: '7ku3rPm8SXmRRaI6x3GGBa',
+        type: 'track',
+        artists: [
+          { name: 'Rishi Roy', id: '1CPC6yBRVnK1WxibuqwNNH' },
+          { name: 'Dabzee', id: '2JJKoRrK7Eec7jlcjFB7sc' },
+        ],
+        image: [
+          {
+            url: 'https://i.scdn.co/image/ab67616d00001e027c7d9b3969192c34a90c509a',
+          },
+        ],
       },
       {
         name: 'Mini Maharani (From "Premalu")',
-        image:
-          'https://i.scdn.co/image/ab67616d00001e0205eee59ff31cafb305dd419a',
-
-        artists: 'Vishnu Vijay Suhail Koya Kapil Kapilan Vagu Mazan',
+        id: '2CPjVH7irjP1H9Na7VbhrN',
+        type: 'track',
+        artists: [
+          { name: 'Vishnu Vijay', id: '2einniD11Dbvrwy5nWmn4p' },
+          { name: 'Suhail Koya', id: '1d3zWx1pD19ZF60KcVUPYv' },
+          { name: 'Kapil Kapilan', id: '0nMjhemqRwrboQGcs92fh2' },
+          { name: 'Vagu Mazan', id: '2HrVY7Ev6LS8I38EfJvMtV' },
+        ],
+        image: [
+          {
+            url: 'https://i.scdn.co/image/ab67616d00001e0205eee59ff31cafb305dd419a',
+          },
+        ],
       },
       {
-        image:
-          'https://i.scdn.co/image/ab67616d00001e0223ef3415278d67110b3d7b04',
-
         name: 'Aadharanjali (From "Romancham")',
-        artists: 'Sushin Shyam, Madhuvanthi Narayan, Vinayak Sasikumar',
+        id: '3pVxyBO8MlMdmfOTM9i4yx',
+        type: 'track',
+        artists: [
+          { name: 'Sushin Shyam', id: '1qFp8zDvsXyCsC5dqz8X4S' },
+          { name: 'Madhuvanthi Narayan', id: '2uKITbMInpFKYeI9ll9fv8' },
+          { name: 'Vinayak Sasikumar', id: null },
+        ],
+        image: [
+          {
+            url: 'https://i.scdn.co/image/ab67616d00001e0223ef3415278d67110b3d7b04',
+          },
+        ],
       },
       {
         name: 'Nebulakal - Travel Song (From "Manjummel Boys")',
-        image:
-          'https://i.scdn.co/image/ab67616d00001e024ae2265bbf33c50e7ae7b0e5',
-
-        artists: 'Sushin Shyam, Pradeep Kumar, Anwar Ali',
+        id: '1jxFfazgOVIJeYbhBm2ENV',
+        type: 'track',
+        artists: [
+          { name: 'Sushin Shyam', id: '1qFp8zDvsXyCsC5dqz8X4S' },
+          { name: 'Pradeep Kumar', id: '15ClyGUe5g2vllncIC4tp6' },
+          { name: 'Anwar Ali', id: '6ccDjsU6h03TcrKOvBeiu2' },
+        ],
+        image: [
+          {
+            url: 'https://i.scdn.co/image/ab67616d00001e024ae2265bbf33c50e7ae7b0e5',
+          },
+        ],
       },
     ],
   };

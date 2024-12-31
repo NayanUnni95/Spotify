@@ -1,8 +1,10 @@
 import Cookies from 'universal-cookie';
+import { useNavigate } from 'react-router-dom';
 import { instance as axios } from '../axios/configuration';
 import { FastAverageColor } from 'fast-average-color';
 
 export const useAuth = () => {
+  const navigate = useNavigate();
   const fetchData = async (endpoint) => {
     const token = getToken();
     if (token) {
@@ -18,11 +20,18 @@ export const useAuth = () => {
           const response = await axios.get(endpoint, config).catch((error) => {
             if (error.response && error.response.status === 403) {
               console.error('Access forbidden: Check your scopes and token.');
+            } else if (
+              error.response &&
+              (error.response.status === 404 || error.response.status === 400)
+            ) {
+              console.log('client error');
+              navigate('/404');
             } else {
               console.error('An error occurred:', error.message);
             }
+            return;
           });
-          return response.data;
+          return response && response.data;
         } catch (err) {
           console.log(err);
           if (retries === maxRetries - 1) {

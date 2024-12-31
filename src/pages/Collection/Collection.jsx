@@ -8,7 +8,7 @@ import { IoPlay } from 'react-icons/io5';
 import NavBar from '../../components/NavBar/NavBar';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
-import { Liked_Songs, User } from '../../constants/constant';
+import { Liked_Songs } from '../../constants/constant';
 import equ from '../../assets/images/equaliser-animated-green.gif';
 import { DataContext } from '../../context/DataCacheContext';
 import { ThreeDots } from 'react-loader-spinner';
@@ -95,7 +95,10 @@ function Collection() {
           <div style={{ display: 'flex' }}>
             <div className={styles.navigationBtn}>
               <button onClick={() => navigate(-1)}>
-                <FaArrowLeft size={20} color="#ffffff" />
+                <FaArrowLeft
+                  size={20}
+                  style={{ color: 'var(--primary-background)' }}
+                />
               </button>
             </div>
             <div className={styles.title}>

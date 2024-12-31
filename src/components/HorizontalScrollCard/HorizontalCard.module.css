@@ -49,6 +49,9 @@
 .cardDes:hover {
   animation: scroll 10s linear infinite;
 }
+.cardDes a {
+  color: var(--des-font-color);
+}
 .text {
   width: 7em;
   overflow: hidden;

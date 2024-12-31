@@ -21,6 +21,8 @@
 .innerSection {
   display: flex;
   flex-direction: column;
+  /* background: var(--primary-header-bg); */
+  /* background: var(--primary-header-gradient-bg); */
 }
 .innerSection a {
   color: var(--primary-font-color);
@@ -103,7 +105,7 @@ button {
 }
 .desc h4 {
   font-weight: 400;
-  color: var(--primary-font-color);
+  color: #b8b8b8e0;
 }
 .desc h5 {
   color: #000000;
@@ -116,48 +118,9 @@ button {
   flex-direction: column;
 }
 .tableContainer {
+  padding-top: 1.5rem;
   background: var(--primary-table-bg);
   background: var(--primary-table-gradient-bg);
-}
-.artistRelateSection {
-  padding: 1rem;
-  display: flex;
-  align-items: center;
-}
-.playBtnSection {
-  margin: 0 1rem 0 1rem;
-  border-radius: 3rem;
-  background-color: var(--spotify-green-theme);
-}
-.followBtnSection {
-  border-radius: 3rem;
-  border: 1px solid rgb(129, 129, 129);
-  margin: 0 1rem 0 1rem;
-}
-.followBtnSection:hover {
-  background-color: rgb(78, 78, 78);
-}
-.playBtn {
-  height: 4rem;
-  width: 4rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.followBtn {
-  padding: 1rem;
-  height: 2rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-transform: capitalize;
-}
-.optionBtn {
-  padding: 1rem;
-}
-.tracksTitle {
-  margin: 2rem 0 1rem 2rem;
-  color: var(--primary-font-color);
 }
 .tableContainer table {
   width: 100%;
@@ -262,8 +225,8 @@ button {
     display: none;
   }
   .imgSection div img {
-    width: 8rem;
-    height: 8rem;
+    width: 12rem;
+    height: 12rem;
     border-radius: 0.2rem;
   }
   .songManageSection {
@@ -282,9 +245,6 @@ button {
     display: none;
   }
   .songDuration {
-    display: none;
-  }
-  .title {
     display: none;
   }
 }

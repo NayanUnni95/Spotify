@@ -3,7 +3,7 @@ import { FaArrowLeft } from 'react-icons/fa6';
 import NavBar from '../../components/NavBar/NavBar';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
-import { Single_Artists } from '../../constants/constant';
+import { Single_Artists, User_Follow_Read } from '../../constants/constant';
 import { IoPlay } from 'react-icons/io5';
 import equ from '../../assets/images/equaliser-animated-green.gif';
 import { ThreeDots } from 'react-loader-spinner';
@@ -11,6 +11,9 @@ import { VscVerifiedFilled } from 'react-icons/vsc';
 import { RiMore2Line } from 'react-icons/ri';
 import styles from './Artist.module.css';
 import HorizontalCard from '../../components/HorizontalScrollCard/HorizontalCard';
+import { artistAlbums as cleanup } from '../../constants/cleanUpData';
+import { IoMdPlay, IoMdPause } from 'react-icons/io';
+import { RiMoreFill } from 'react-icons/ri';
 
 function Artist() {
   const navigate = useNavigate();
@@ -18,6 +21,7 @@ function Artist() {
   const [topTracks, setTopTracks] = useState(null);
   const [artistAlbums, setArtistAlbum] = useState(null);
   const [bgColor, setBgColor] = useState('#090909');
+  const [isFollowing, setIsFollowing] = useState(false);
   const { fetchData, msToTime, DateConverter, predictColor } = useAuth();
   const { artistId } = useParams();
 
@@ -26,11 +30,15 @@ function Artist() {
       fetchData(`${Single_Artists}/${artistId}`),
       fetchData(`${Single_Artists}/${artistId}/top-tracks`),
       fetchData(`${Single_Artists}/${artistId}/albums?limit=10`),
+      fetchData(`${User_Follow_Read}/contains?type=artist&ids=${artistId}`),
     ])
       .then((res) => {
-        setArtistData(res[0]);
-        setTopTracks(res[1]);
-        setArtistAlbum(res[2]);
+        if (res[0] != undefined) {
+          setArtistData(res[0]);
+          setTopTracks(res[1]);
+          setArtistAlbum(cleanup(res[2]));
+          setIsFollowing(res[3][0]);
+        }
       })
       .catch((err) => {
         console.log(err);
@@ -66,7 +74,10 @@ function Artist() {
         <nav>
           <div className={styles.navigationBtn}>
             <button onClick={() => navigate(-1)}>
-              <FaArrowLeft size={20} color="black" />
+              <FaArrowLeft
+                size={20}
+                style={{ color: 'var(--primary-background)' }}
+              />
             </button>
           </div>
         </nav>
@@ -99,7 +110,33 @@ function Artist() {
           </div>
         </header>
         <div className={styles.tableContainer}>
+          <div className={styles.artistRelateSection}>
+            <div className={styles.playBtnSection}>
+              <button className={styles.playBtn}>
+                <IoMdPlay size={25} />
+              </button>
+            </div>
+            <div className={styles.followBtnSection}>
+              <button
+                className={styles.followBtn}
+                style={{ color: 'var(--primary-font-color)' }}
+              >
+                {isFollowing ? 'following' : 'follow'}
+              </button>
+            </div>
+            <div className={styles.optionBtnSection}>
+              <button className={styles.optionBtn}>
+                <RiMoreFill
+                  size={25}
+                  style={{ color: 'var(--primary-font-color)' }}
+                />
+              </button>
+            </div>
+          </div>
           <hr />
+          <div className={styles.tracksTitle}>
+            <h1>popular</h1>
+          </div>
           <table>
             <tbody>
               {topTracks &&
@@ -146,6 +183,7 @@ function Artist() {
                 })}
             </tbody>
           </table>
+          <HorizontalCard data={artistAlbums} />
         </div>
       </div>
     </div>
