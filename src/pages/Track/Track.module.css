@@ -1,0 +1,367 @@
+.collectionSection {
+  width: 100%;
+  text-transform: capitalize;
+  overflow-y: auto;
+}
+.collectionSection::-webkit-scrollbar {
+  display: none;
+}
+.loaderSection {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--primary-section-bg);
+}
+.cell {
+  display: grid;
+  align-items: center;
+  /* grid-template-columns: 1fr 3fr 2fr 2fr 1fr; */
+}
+.innerSection {
+  display: flex;
+  flex-direction: column;
+}
+.innerSection a {
+  color: var(--primary-font-color);
+}
+.innerSection a:hover {
+  text-decoration: underline;
+}
+.innerSection nav {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.navigationBtn {
+  display: flex;
+  padding: 0.5rem 0.5rem 0.5rem 1rem;
+}
+.navigationBtn button {
+  border: none;
+  padding: 0.1rem;
+  background: none;
+}
+.innerSection header {
+  padding: 1rem;
+  display: flex;
+  align-items: start;
+  justify-content: start;
+}
+.desc {
+  color: gray;
+  display: flex;
+  align-items: center;
+}
+.name {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.name img {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 3rem;
+  margin-right: 0.5rem;
+}
+.songManageSection {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.searchBar {
+  width: 70%;
+  padding: 0.5rem;
+  border-radius: 0.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: brown;
+}
+.searchBar input {
+  width: 100%;
+}
+.searchBar input,
+button {
+  border: none;
+  background: none;
+}
+.sortBtn {
+  padding: 0.5rem;
+  border-radius: 0.2rem;
+}
+.type {
+  color: #b8b8b8e0;
+}
+.title h1 {
+  font-size: x-large;
+  font-weight: bolder;
+  color: #ffffff;
+}
+.desc {
+  font-size: medium;
+}
+.desc h4 {
+  font-weight: 400;
+  color: var(--primary-font-color);
+}
+.desc h5 {
+  color: #000000;
+}
+.songCount {
+  color: #b8b8b8e0;
+}
+.detailsSection {
+  display: flex;
+  flex-direction: column;
+}
+.tableContainer {
+  background: var(--primary-table-bg);
+  background: var(--primary-table-gradient-bg);
+}
+.artistRelateSection {
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+}
+.playBtnSection {
+  margin: 0 1rem 0 1rem;
+  border-radius: 3rem;
+  background-color: var(--spotify-green-theme);
+}
+.followBtnSection {
+  border-radius: 3rem;
+  border: 1px solid rgb(129, 129, 129);
+  margin: 0 1rem 0 1rem;
+}
+.followBtnSection:hover {
+  background-color: rgb(78, 78, 78);
+}
+.playBtn {
+  height: 4rem;
+  width: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.followBtn {
+  padding: 1rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: capitalize;
+}
+.optionBtn {
+  padding: 1rem;
+}
+.tracksTitle {
+  margin: 2rem 0 1rem 2rem;
+  color: var(--primary-font-color);
+}
+/* .tableContainer table {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+  .tableContainer table td {
+    text-align: center;
+    overflow: hidden;
+  }
+  .tableContainer table thead {
+    background-color: rgba(71, 71, 71, 0.603);
+    position: sticky;
+    top: 0;
+  }
+  .tableContainer table thead tr th {
+    margin-left: 1rem;
+    padding: 1rem;
+    color: var(--primary-section-bg);
+  }
+  .tableContainer table tbody tr {
+    cursor: pointer;
+  }
+  .tableContainer table tbody tr td {
+    color: var(--primary-font-color);
+    padding: 0.5rem 0.5rem 0.5rem 1rem;
+  }
+  .tableSongTitleLabel {
+    display: flex;
+  } */
+.songMainData {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.songAvatar {
+  display: flex;
+}
+.songAvatar img {
+  width: 2.8rem;
+  height: 2.8rem;
+  border-radius: 4px;
+}
+.songDetails {
+  margin-left: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+  overflow: hidden;
+}
+.equ {
+  width: 15px;
+  height: 15px;
+}
+.songName {
+  width: 7em;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.songName:hover {
+  overflow: visible;
+  text-overflow: clip;
+  animation: scroll 10s linear infinite;
+}
+.artistName {
+  margin-top: 0.3rem;
+  width: 7em;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.artistName:hover {
+  overflow: visible;
+  text-overflow: clip;
+  animation: scroll 10s linear infinite;
+}
+.albumNameSection {
+  width: 6.5em;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.albumNameSection:hover {
+  overflow: visible;
+  text-overflow: clip;
+  animation: scroll 10s linear infinite;
+}
+.moreBtn svg {
+  cursor: not-allowed;
+}
+@media only screen and (max-width: 426px) {
+  .innerSection header {
+    padding: 0;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+  .detailsSection {
+    margin: 1rem;
+  }
+  .navigationBar {
+    display: none;
+  }
+  .imgSection div img {
+    width: 8rem;
+    height: 8rem;
+    border-radius: 0.2rem;
+  }
+  .songManageSection {
+    display: none;
+  }
+  .type {
+    display: none;
+  }
+  .tableContainer {
+    padding-bottom: 8rem;
+  }
+  .tableContainer table thead {
+    display: none;
+  }
+  .songNo {
+    display: none;
+  }
+  .songDuration {
+    display: none;
+  }
+  .title {
+    display: none;
+  }
+}
+@media only screen and (min-width: 426px) {
+  .innerSection {
+    border-radius: 5px 5px 0 0;
+  }
+  .innerSection header {
+    align-items: center;
+  }
+  .imgSection div img {
+    width: 80px;
+    height: 80px;
+    border-radius: 0.2rem;
+  }
+  .innerSection nav {
+    display: none;
+  }
+  .detailsSection {
+    padding: 1rem;
+  }
+  .detailsSection > div {
+    margin: 0.2rem;
+  }
+  .title h1 {
+    font-size: xx-large;
+  }
+  .collectionSection {
+    border-radius: 0.5rem;
+  }
+  .moreBtn {
+    display: none;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .tableSongAlbumLabel {
+    display: none;
+  }
+  .tableSongDateLabel {
+    display: none;
+  }
+  .songAlbumName {
+    display: none;
+  }
+  .songAddedTime {
+    display: none;
+  }
+  .name img {
+    display: none;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .innerSection {
+    border-radius: 5px 5px 0 0;
+  }
+  .imgSection div img {
+    width: 120px;
+    height: 120px;
+  }
+  .title h1 {
+    font-size: 3rem;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .imgSection div img {
+    width: 200px;
+    height: 200px;
+  }
+  .title h1 {
+    font-size: 4rem;
+  }
+}
+@keyframes scroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}

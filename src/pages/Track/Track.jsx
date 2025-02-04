@@ -3,49 +3,44 @@ import { FaArrowLeft } from 'react-icons/fa6';
 import NavBar from '../../components/NavBar/NavBar';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
-import { User_Profile, User_Follow_Read } from '../../constants/constant';
+import { Several_Tracks } from '../../constants/constant';
 import { ThreeDots } from 'react-loader-spinner';
-import styles from './User.module.css';
+import styles from './Track.module.css';
 import HorizontalCard from '../../components/HorizontalScrollCard/HorizontalCard';
 // import { artistAlbums as cleanup } from '../../constants/cleanUpData';
 import { RiMoreFill } from 'react-icons/ri';
-import { genrePlaylist } from '../../constants/cleanUpData';
+// import { genrePlaylist } from '../../constants/cleanUpData';
+import { IoMdPlay, IoMdPause } from 'react-icons/io';
 
-function User() {
+function Track() {
   const navigate = useNavigate();
-  const [userData, setUserData] = useState(null);
+  const [trackData, setTrackData] = useState(null);
   const [userPlaylist, setUserPlaylist] = useState(null);
   const [bgColor, setBgColor] = useState('#090909');
-  const [isFollowing, setIsFollowing] = useState(false);
   const { fetchData, predictColor } = useAuth();
-  const { userId } = useParams();
+  const { trackId } = useParams();
 
   useEffect(() => {
-    Promise.all([
-      fetchData(`${User_Profile}/${userId}`),
-      fetchData(`${User_Profile}/${userId}/playlists`),
-      fetchData(`${User_Follow_Read}/contains?type=user&ids=${userId}`),
-    ])
+    Promise.all([fetchData(`${Several_Tracks}/${trackId}`)])
       .then((res) => {
         if (res[0] != undefined) {
-          // console.log(res);
-          setUserData(res[0]);
-          setIsFollowing(res[2][0]);
-          // setUserPlaylist(res[1]);
-          setUserPlaylist(genrePlaylist(res[1]));
+          console.log(res);
+          setTrackData(res[0]);
         }
       })
       .catch((err) => {
         console.log(err);
       });
-  }, [userId]);
+  }, [trackId]);
 
   useEffect(() => {
-    if (userData)
-      predictColor(userData.images[0].url, (result) => setBgColor(result.rgba));
-  }, [userData]);
+    if (trackData)
+      predictColor(trackData.album.images[1].url, (result) =>
+        setBgColor(result.rgba)
+      );
+  }, [trackData]);
 
-  if (!userData) {
+  if (!trackData) {
     return (
       <div className={styles.collectionSection}>
         <div className={styles.loaderSection}>
@@ -78,28 +73,22 @@ function User() {
           <div className={styles.imgSection}>
             <div>
               <img
-                src={userData && userData.images[0].url}
-                alt={userData && userData.name}
+                src={trackData && trackData.album.images[1].url}
+                alt={trackData && trackData.name}
               />
             </div>
           </div>
           <div className={styles.detailsSection}>
             <div className={styles.title}>
-              <h1>{userData && userData.display_name}</h1>
-            </div>
-            <div className={styles.desc}>
-              <h4>{userData && userData.followers.total} follower</h4>
+              <h1>{trackData && trackData.name}</h1>
             </div>
           </div>
         </header>
         <div className={styles.tableContainer}>
           <div className={styles.artistRelateSection}>
-            <div className={styles.followBtnSection}>
-              <button
-                className={styles.followBtn}
-                style={{ color: 'var(--primary-font-color)' }}
-              >
-                {isFollowing ? 'following' : 'follow'}
+            <div className={styles.playBtnSection}>
+              <button className={styles.playBtn}>
+                <IoMdPlay size={25} />
               </button>
             </div>
             <div className={styles.optionBtnSection}>
@@ -113,11 +102,11 @@ function User() {
           </div>
           <hr />
           <div className={styles.tracksTitle}>{/* <h1>popular</h1> */}</div>
-          <HorizontalCard data={userPlaylist} />
+          {/* <HorizontalCard data={userPlaylist} /> */}
         </div>
       </div>
     </div>
   );
 }
 
-export default User;
+export default Track;

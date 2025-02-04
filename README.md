@@ -73,7 +73,7 @@ npm run dev
 ###### Prettier:
 
 ```bash
-npx prettier --write <filename>
+npm run format
 ```
 
 ###### Preview:

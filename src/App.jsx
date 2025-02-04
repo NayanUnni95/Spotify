@@ -17,6 +17,7 @@ import Genre from './pages/Genre/Genre';
 import Artist from './pages/Artist/Artist';
 import Album from './pages/Album/Album';
 import User from './pages/User/User';
+import Track from './pages/Track/Track';
 
 function App() {
   return (
@@ -31,7 +32,7 @@ function App() {
             <Route path="/playlist/:playlistId" element={<Playlist />} />
             <Route path="/artist/:artistId" element={<Artist />} />
             <Route path="/album/:albumId" element={<Album />} />
-            <Route path="/track/:trackId" element={'Track Page'} />
+            <Route path="/track/:trackId" element={<Track />} />
             <Route path="/user/:userId" element={<User />} />
             <Route path="/genre/:genreId" element={<Genre />} />
           </Route>

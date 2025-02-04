@@ -53,8 +53,6 @@ export const playlist = (playlistData) => {
   if (playlistData && playlistData.total > 0) {
     return playlistData.items.map((obj) => {
       if (obj != null) {
-        // console.log(obj);
-
         return {
           title: removeCharactersAfterSymbol(obj.name),
           type: obj.type,
