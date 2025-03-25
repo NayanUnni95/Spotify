@@ -29,7 +29,7 @@
     "eslint-plugin-react": "^7.34.2",
     "eslint-plugin-react-hooks": "^4.6.2",
     "eslint-plugin-react-refresh": "^0.4.7",
-    "vite": "^6.2.0"
+    "vite": "^6.2.3"
   },
   "description": "Spotify Clone",
   "main": "vite.config.js",
